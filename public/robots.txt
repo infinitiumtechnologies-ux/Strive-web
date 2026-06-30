@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://strivewheels.com/sitemap.xml
