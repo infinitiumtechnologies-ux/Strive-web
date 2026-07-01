@@ -7,5 +7,6 @@ export default {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|less|sass|scss)$': '<rootDir>/src/tests/mocks/styleMock.js',
+    '\\.(png|jpg|jpeg|gif|webp|svg)$': '<rootDir>/src/tests/mocks/fileMock.js',
   },
 };
