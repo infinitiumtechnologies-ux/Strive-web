@@ -2,6 +2,10 @@ import * as React from 'react';
 import { Users, Fuel, Briefcase, Gauge, Check } from 'lucide-react';
 import { Card } from '../../../shared/ui/Card';
 import { Button } from '../../../shared/ui/Button';
+import vehicleCar from '../../../assets/vehicle_car.png';
+import vehicleTempo from '../../../assets/vehicle_tempo.png';
+import vehicleMinibus from '../../../assets/vehicle_minibus.png';
+import vehicleHitechBus from '../../../assets/vehicle_hitech_bus.png';
 
 export interface Vehicle {
   id: string;
@@ -20,7 +24,7 @@ export const vehiclesData: Vehicle[] = [
     id: 'v1',
     name: 'Toyota Camry / Sedan',
     category: '4-Wheel',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80',
+    image: vehicleCar,
     pricePerDay: 50,
     seats: 4,
     transmission: 'Auto',
@@ -31,7 +35,7 @@ export const vehiclesData: Vehicle[] = [
     id: 'v2',
     name: 'Ford Explorer / SUV',
     category: '4-Wheel',
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80',
+    image: vehicleCar,
     pricePerDay: 75,
     seats: 7,
     transmission: 'Auto',
@@ -42,7 +46,7 @@ export const vehiclesData: Vehicle[] = [
     id: 'v3',
     name: 'Mercedes Sprinter / Tempo',
     category: 'Tempo',
-    image: 'https://images.unsplash.com/photo-1542318041-958b16956f76?auto=format&fit=crop&w=600&q=80',
+    image: vehicleTempo,
     pricePerDay: 120,
     seats: 15,
     transmission: 'Auto',
@@ -53,7 +57,7 @@ export const vehiclesData: Vehicle[] = [
     id: 'v4',
     name: 'Force Traveller Shuttler',
     category: 'Tempo',
-    image: 'https://images.unsplash.com/photo-1623940178491-d30900ccca01?auto=format&fit=crop&w=600&q=80',
+    image: vehicleTempo,
     pricePerDay: 110,
     seats: 12,
     transmission: 'Manual',
@@ -64,7 +68,7 @@ export const vehiclesData: Vehicle[] = [
     id: 'v5',
     name: 'Isuzu Corporate Coaster',
     category: 'Medium Bus',
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=80',
+    image: vehicleMinibus,
     pricePerDay: 180,
     seats: 28,
     transmission: 'Manual',
@@ -75,7 +79,7 @@ export const vehiclesData: Vehicle[] = [
     id: 'v6',
     name: 'Volvo Luxury Coach Bus',
     category: '54-Seater Bus',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80',
+    image: vehicleHitechBus,
     pricePerDay: 350,
     seats: 54,
     transmission: 'Auto',
@@ -113,11 +117,16 @@ export const FeaturedVehicles: React.FC = () => {
               data-testid="vehicle-card"
             >
               {/* Image */}
-              <div className="relative h-48 w-full overflow-hidden bg-slate-950">
+              <div className="relative h-48 w-full overflow-hidden bg-slate-900 flex items-center justify-center">
                 <img
                   src={car.image}
                   alt={car.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    const t = e.currentTarget;
+                    t.onerror = null;
+                    t.src = `https://placehold.co/600x300/0f172a/334155?text=${encodeURIComponent(car.name)}`;
+                  }}
                 />
                 <span className="absolute top-4 left-4 bg-brand-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   {car.category}

@@ -68,8 +68,17 @@ export const CarFleet: React.FC = () => {
                 data-testid="fleet-car-item"
               >
                 <Card className="flex flex-col h-[380px] overflow-hidden p-0 border border-slate-855 bg-slate-900/10 hover:border-slate-800">
-                  <div className="relative h-44 w-full bg-slate-950 overflow-hidden">
-                    <img src={car.image} alt={car.name} className="w-full h-full object-cover" />
+                  <div className="relative h-44 w-full bg-slate-900 overflow-hidden flex items-center justify-center">
+                    <img
+                      src={car.image}
+                      alt={car.name}
+                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        const t = e.currentTarget;
+                        t.onerror = null;
+                        t.src = `https://placehold.co/600x300/0f172a/334155?text=${encodeURIComponent(car.name)}`;
+                      }}
+                    />
                   </div>
                   <div className="flex-grow p-6 flex flex-col justify-between">
                     <div>
