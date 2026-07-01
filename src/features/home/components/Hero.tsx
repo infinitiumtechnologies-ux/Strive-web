@@ -51,21 +51,16 @@ const vehicleSlides = [
 
 export const Hero: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [prevIndex, setPrevIndex] = React.useState<number | null>(null);
   const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = React.useCallback((idx: number) => {
-    setPrevIndex(activeIndex);
     setActiveIndex(idx);
-  }, [activeIndex]);
+  }, []);
 
   // Auto-advance every 4s
   React.useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setActiveIndex((prev) => {
-        setPrevIndex(prev);
-        return (prev + 1) % vehicleSlides.length;
-      });
+      setActiveIndex((prev) => (prev + 1) % vehicleSlides.length);
     }, 4000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
