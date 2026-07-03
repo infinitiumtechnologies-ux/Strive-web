@@ -7,7 +7,7 @@ import { Button } from '../../../shared/ui/Button';
 export const CarFleet: React.FC = () => {
   const [activeTab, setActiveTab] = React.useState<string>('All');
 
-  const tabs = ['All', '4-Wheel', 'Tempo', 'Medium Bus', '54-Seater Bus'];
+  const tabs = ['All', '4-Wheel', 'Tempo', 'Medium Bus', '54-Seater Bus', 'Commercial Truck'];
 
   const filteredVehicles =
     activeTab === 'All' ? vehiclesData : vehiclesData.filter((car) => car.category === activeTab);

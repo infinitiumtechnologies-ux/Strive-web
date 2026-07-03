@@ -56,6 +56,14 @@ export const Testimonials: React.FC = () => {
     setIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
   };
 
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setIndex((prev) => (prev + 1) % testimonialsData.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
   const current = testimonialsData[index];
 
   const slideVariants = {

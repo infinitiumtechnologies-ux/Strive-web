@@ -5,6 +5,7 @@ import vehicleCar from '../../../assets/vehicle_car.png';
 import vehicleTempo from '../../../assets/vehicle_tempo.png';
 import vehicleMinibus from '../../../assets/vehicle_minibus.png';
 import vehicleHitechBus from '../../../assets/vehicle_hitech_bus.png';
+import vehicleTruck from '../../../assets/vehicle_truck.png';
 
 const vehicleSlides = [
   {
@@ -45,6 +46,16 @@ const vehicleSlides = [
     badge: 'Luxury Coach',
     accent: '#34d399',       // emerald
     gradientFrom: 'rgba(52,211,153,0.18)',
+    gradientTo: 'rgba(15,23,42,0.82)',
+  },
+  {
+    id: 'truck',
+    image: vehicleTruck,
+    label: 'Commercial Truck',
+    subLabel: 'Heavy-Duty Cargo Transport',
+    badge: 'Cargo & Logistics',
+    accent: '#f97316',       // orange
+    gradientFrom: 'rgba(249,115,22,0.18)',
     gradientTo: 'rgba(15,23,42,0.82)',
   },
 ];
@@ -207,6 +218,7 @@ export const Hero: React.FC = () => {
 
         {/* Booking Form */}
         <motion.div
+          id="booking-form"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}

@@ -6,6 +6,7 @@ import vehicleCar from '../../../assets/vehicle_car.png';
 import vehicleTempo from '../../../assets/vehicle_tempo.png';
 import vehicleMinibus from '../../../assets/vehicle_minibus.png';
 import vehicleHitechBus from '../../../assets/vehicle_hitech_bus.png';
+import vehicleTruck from '../../../assets/vehicle_truck.png';
 
 export interface Vehicle {
   id: string;
@@ -85,6 +86,17 @@ export const vehiclesData: Vehicle[] = [
     transmission: 'Auto',
     fuel: 'Diesel',
     luggage: 50,
+  },
+  {
+    id: 'v7',
+    name: 'Heavy Duty Cargo Box Truck',
+    category: 'Commercial Truck',
+    image: vehicleTruck,
+    pricePerDay: 250,
+    seats: 3,
+    transmission: 'Manual',
+    fuel: 'Diesel',
+    luggage: 120,
   },
 ];
 

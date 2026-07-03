@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Users, Briefcase, Gauge, Fuel, ArrowRight, ChevronDown } from 'lucide-react';
+import { Users, Briefcase, Gauge, Fuel, ArrowRight, ChevronDown, Truck } from 'lucide-react';
 import vehicleCar from '../../../assets/vehicle_car.png';
 import vehicleTempo from '../../../assets/vehicle_tempo.png';
 import vehicleMinibus from '../../../assets/vehicle_minibus.png';
 import vehicleHitechBus from '../../../assets/vehicle_hitech_bus.png';
+import vehicleTruck from '../../../assets/vehicle_truck.png';
 
 /* ─────────────────────────────────────────────────────────────
    Data
@@ -104,6 +105,26 @@ const fleetServices: FleetService[] = [
     accentHex: '#f43f5e',
     glowRgba: 'rgba(244,63,94,0.18)',
     tagBg: 'bg-rose-500/10 text-rose-400 border-rose-500/30',
+  },
+  {
+    id: 'truck',
+    number: '05',
+    tag: 'Heavy / Commercial Truck',
+    title: 'Cargo & Logistics Solutions',
+    subtitle: 'Heavy-Duty Cargo Trucks for Freight & Moving',
+    description:
+      'Engineered for commercial freight, logistics, and heavy goods transport. Our orange box truck offers exceptional payload capacity, secure cargo containment, and reliable transit options for all business scale logistics.',
+    features: [
+      { icon: <Users className="h-4 w-4" />, label: '3 Passengers / Crew' },
+      { icon: <Gauge className="h-4 w-4" />, label: 'Manual Transmission' },
+      { icon: <Fuel className="h-4 w-4" />, label: 'Heavy-Duty Diesel' },
+      { icon: <Truck className="h-4 w-4" />, label: 'XL Payload: Up to 5 Tons' },
+    ],
+    priceFrom: 450,
+    image: vehicleTruck,
+    accentHex: '#f97316',
+    glowRgba: 'rgba(249,115,22,0.18)',
+    tagBg: 'bg-orange-500/10 text-orange-400 border-orange-500/30',
   },
 ];
 

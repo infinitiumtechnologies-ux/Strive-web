@@ -193,6 +193,7 @@ export const BookingSearchForm: React.FC = () => {
                 <option value="Tempo">Tempo (12-15 Seats)</option>
                 <option value="Medium Bus">Medium Bus (28 Seats)</option>
                 <option value="54-Seater Bus">54-Seater Coach Bus</option>
+                <option value="Commercial Truck">Commercial Cargo Truck</option>
               </select>
             </div>
           </div>

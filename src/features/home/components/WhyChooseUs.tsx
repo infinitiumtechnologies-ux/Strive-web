@@ -46,7 +46,7 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-slate-900/30 border-t border-slate-900" data-testid="why-choose-us">
+    <section id="features" className="py-20 bg-slate-900/30 border-t border-slate-900" data-testid="why-choose-us">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Title */}
         <div className="text-center space-y-3">

@@ -7,7 +7,33 @@
     <title>Strive Wheels</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #020617; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; z-index: 9999;">
+        <div style="position: relative; width: 260px; margin-bottom: 24px; animation: float 3s ease-in-out infinite;">
+          <img src="/app_loader_car.png" alt="Strive Wheels" style="width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 10px 25px rgba(239, 68, 68, 0.15));" />
+        </div>
+        <div style="width: 180px; height: 3px; background-color: #0f172a; border-radius: 9999px; overflow: hidden; position: relative; border: 1px solid #1e293b;">
+          <div style="position: absolute; height: 100%; width: 40%; background: linear-gradient(90deg, #ef4444, #f59e0b); border-radius: 9999px; animation: slide-progress 1.6s infinite ease-in-out;"></div>
+        </div>
+        <div style="margin-top: 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.1em; animation: pulse 1.8s infinite;">
+          Loading Strive Systems...
+        </div>
+        <style>
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes slide-progress {
+            0% { left: -40%; }
+            100% { left: 100%; }
+          }
+          @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+          }
+        </style>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

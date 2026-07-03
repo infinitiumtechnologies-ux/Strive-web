@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoImg from '../assets/logo.png';
+import { Button } from '../shared/ui/Button';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -22,9 +23,11 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/#' },
+    { name: 'Home', path: '/' },
+    { name: 'Corporate Sync', path: '/#corporate-sync' },
+    { name: 'Our Services', path: '/#fleet-services' },
     { name: 'Features', path: '/#features' },
-    { name: 'About', path: '/#about' },
+    { name: 'About Us', path: '/#aboutus' },
     { name: 'Contact Us', path: '/#contact' },
   ];
 
@@ -59,17 +62,38 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-6">
             <div className="flex items-center gap-2">
               {navLinks.map((link) => {
+                if (link.path.startsWith('/#')) {
+                  return (
+                    <a
+                      key={link.path}
+                      href={link.path}
+                      className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  );
+                }
                 return (
-                  <a
+                  <Link
                     key={link.path}
-                    href={link.path}
+                    to={link.path}
+                    onClick={handleNavClick}
                     className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
+            <a href="/#booking-form">
+              <Button
+                variant="primary"
+                size="sm"
+                className="font-bold bg-brand-500 text-slate-950 hover:bg-brand-400 border-none transition-all duration-200"
+              >
+                Book Now
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,16 +118,41 @@ export const Navbar: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden border-b border-slate-900 bg-slate-950 px-4 pt-2 pb-4 space-y-2 overflow-hidden shadow-xl"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                onClick={handleNavClick}
-                className="block px-3 py-2 rounded-lg text-base font-semibold text-slate-300 hover:bg-slate-900/50 hover:text-slate-200 transition-colors"
-              >
-                {link.name}
+            {navLinks.map((link) => {
+              if (link.path.startsWith('/#')) {
+                return (
+                  <a
+                    key={link.path}
+                    href={link.path}
+                    onClick={handleNavClick}
+                    className="block px-3 py-2 rounded-lg text-base font-semibold text-slate-300 hover:bg-slate-900/50 hover:text-slate-200 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={handleNavClick}
+                  className="block px-3 py-2 rounded-lg text-base font-semibold text-slate-300 hover:bg-slate-900/50 hover:text-slate-200 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+            <div className="pt-2 border-t border-slate-900 mt-2">
+              <a href="/#booking-form" onClick={handleNavClick} className="block">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="w-full font-bold bg-brand-500 text-slate-950 hover:bg-brand-400 border-none"
+                >
+                  Book Now
+                </Button>
               </a>
-            ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

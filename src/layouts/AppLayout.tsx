@@ -8,6 +8,23 @@ export const AppLayout: React.FC = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
+  React.useEffect(() => {
+    const { hash } = location;
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Small delay to allow DOM to finish rendering
+        const timer = setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+        return () => clearTimeout(timer);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -29,9 +46,9 @@ export const AppLayout: React.FC = () => {
         </motion.main>
       </AnimatePresence>
 
-      <footer id="contact" className="border-t border-slate-800 bg-slate-950 py-6 text-center text-sm text-slate-500">
+      <footer className="border-t border-slate-900 bg-slate-950 py-6 text-center text-sm text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} RentNow Inc. Premium Car Rentals.</p>
+          <p>© {new Date().getFullYear()} Strive Mobility Solutions Pvt. Ltd. All rights reserved.</p>
         </div>
       </footer>
     </div>
