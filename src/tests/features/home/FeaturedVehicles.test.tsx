@@ -7,7 +7,7 @@ describe('FeaturedVehicles Component', () => {
     expect(screen.getByText('Featured Vehicles For Rent')).toBeInTheDocument();
 
     const cards = screen.getAllByTestId('vehicle-card');
-    expect(cards).toHaveLength(6);
+    expect(cards).toHaveLength(7);
   });
 
   it('renders vehicle specifications in card items', () => {
