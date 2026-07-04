@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { MapPin, Calendar, Clock, Search, Check, Bus, Car } from 'lucide-react';
+import { MapPin, Calendar, Clock, Search, Check, Bus, Car, ChevronLeft, ChevronDown } from 'lucide-react';
 import { Card } from '../../../shared/ui/Card';
 import { Button } from '../../../shared/ui/Button';
+import { cn } from '../../../shared/utils/cn';
 
 const bookingSchema = z.object({
   pickupLocation: z.string().min(2, 'Pick-up location is required'),
@@ -21,9 +22,32 @@ const bookingSchema = z.object({
 
 type BookingFields = z.infer<typeof bookingSchema>;
 
+const getLocalDateString = (offsetDays = 0) => {
+  const d = new Date();
+  if (offsetDays) {
+    d.setDate(d.getDate() + offsetDays);
+  }
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
 export const BookingSearchForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successData, setSuccessData] = React.useState<BookingFields | null>(null);
+
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isSubOpen, setIsSubOpen] = React.useState(false);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+        setIsSubOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const {
     register,
@@ -36,11 +60,11 @@ export const BookingSearchForm: React.FC = () => {
     defaultValues: {
       pickupLocation: 'Dallas Corporate HQ',
       dropLocation: 'North Residential Hub',
-      pickupDate: '',
+      pickupDate: getLocalDateString(),
       pickupTime: '09:00',
       rideType: 'Instant Ride',
-      vehicleType: '4-Wheel',
-      dropDate: '',
+      vehicleType: '4 - Wheel',
+      dropDate: getLocalDateString(1),
       dropTime: '18:00',
       corporateShift: 'General Shift (09:00 AM - 06:00 PM)',
       corporateDirection: 'Home to Office',
@@ -145,7 +169,7 @@ export const BookingSearchForm: React.FC = () => {
                   className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
                 >
                   <Calendar className="h-3.5 w-3.5 text-brand-500" />
-                  {activeRideType === 'Corporate Sync' ? 'Start Date' : 'Pick-Up'}
+                  {activeRideType === 'Corporate Sync' ? 'Start Date' : 'Pick-Up Date'}
                 </label>
                 <input
                   id="pickupDate"
@@ -176,7 +200,7 @@ export const BookingSearchForm: React.FC = () => {
             </div>
 
             {/* Vehicle Type */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 relative">
               <label
                 htmlFor="vehicleType"
                 className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
@@ -184,17 +208,141 @@ export const BookingSearchForm: React.FC = () => {
                 <Car className="h-3.5 w-3.5 text-brand-500" />
                 Vehicle Class
               </label>
-              <select
-                id="vehicleType"
-                className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent"
-                {...register('vehicleType')}
-              >
-                <option value="4-Wheel">4-Wheel (Sedan/SUV)</option>
-                <option value="Tempo">Tempo (12-15 Seats)</option>
-                <option value="Medium Bus">Medium Bus (28 Seats)</option>
-                <option value="54-Seater Bus">54-Seater Coach Bus</option>
-                <option value="Commercial Truck">Commercial Cargo Truck</option>
-              </select>
+
+              {/* Hidden input for react-hook-form registration */}
+              <input type="hidden" id="vehicleType" {...register('vehicleType')} />
+
+              <div ref={dropdownRef} className="relative w-full">
+                {/* Trigger Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="flex h-11 w-full items-center justify-between rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500"
+                >
+                  <span className="truncate">{watch('vehicleType')}</span>
+                  <ChevronDown className={cn("h-4 w-4 text-slate-400 transition-transform duration-200", isOpen && "rotate-180")} />
+                </button>
+
+                {/* Main Dropdown Popover */}
+                {isOpen && (
+                  <div className="absolute left-0 mt-2 w-64 rounded-lg border border-slate-800 bg-slate-950/95 backdrop-blur-md py-1 shadow-2xl z-50 text-sm">
+                    {/* Header */}
+                    <div className="px-3 py-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-900 mb-1">
+                      Choose Vehicle Class:
+                    </div>
+
+                    {/* Option: 4 - Wheel */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setValue('vehicleType', '4 - Wheel');
+                        setIsOpen(false);
+                        setIsSubOpen(false);
+                      }}
+                      className={cn(
+                        "w-full text-left px-3 py-2 text-slate-350 hover:bg-slate-900 hover:text-white transition-colors",
+                        watch('vehicleType') === '4 - Wheel' && "bg-slate-900/50 text-brand-400 font-medium"
+                      )}
+                    >
+                      4 - Wheel
+                    </button>
+
+                    {/* Option: Tempo Traveler (With sub-menu on hover/click) */}
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setIsSubOpen(true)}
+                      onMouseLeave={() => setIsSubOpen(false)}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setIsSubOpen(!isSubOpen)}
+                        className={cn(
+                          "w-full text-left px-3 py-2 text-slate-350 hover:bg-slate-900 hover:text-white transition-colors flex items-center justify-between",
+                          watch('vehicleType').startsWith('Tempo Traveler') && "bg-slate-900/50 text-brand-400 font-medium"
+                        )}
+                      >
+                        <span>Tempo Traveler</span>
+                        <ChevronLeft className="h-4 w-4 text-slate-500" />
+                      </button>
+
+                      {/* Sub-menu (Flyout on desktop, Accordion on mobile) */}
+                      {isSubOpen && (
+                        <div className="absolute top-0 right-full mr-1 w-60 rounded-lg border border-slate-800 bg-slate-950/95 backdrop-blur-md py-1 shadow-2xl z-50 transition-all duration-200">
+                          {['12', '13', '14', '15', '16'].map((seats) => {
+                            const val = `Tempo Traveler with ${seats} seater`;
+                            const isSelected = watch('vehicleType') === val;
+                            return (
+                              <button
+                                key={seats}
+                                type="button"
+                                onClick={() => {
+                                  setValue('vehicleType', val);
+                                  setIsOpen(false);
+                                  setIsSubOpen(false);
+                                }}
+                                className={cn(
+                                  "w-full text-left px-3 py-2 text-slate-350 hover:bg-slate-900 hover:text-white transition-colors pl-6 md:pl-3",
+                                  isSelected && "bg-brand-500 text-slate-950 font-bold"
+                                )}
+                              >
+                                {val}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Option: Mini Bus */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setValue('vehicleType', 'Mini Bus');
+                        setIsOpen(false);
+                        setIsSubOpen(false);
+                      }}
+                      className={cn(
+                        "w-full text-left px-3 py-2 text-slate-350 hover:bg-slate-900 hover:text-white transition-colors",
+                        watch('vehicleType') === 'Mini Bus' && "bg-slate-900/50 text-brand-400 font-medium"
+                      )}
+                    >
+                      Mini Bus
+                    </button>
+
+                    {/* Option: Luxury Coach */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setValue('vehicleType', 'Luxury Coach');
+                        setIsOpen(false);
+                        setIsSubOpen(false);
+                      }}
+                      className={cn(
+                        "w-full text-left px-3 py-2 text-slate-350 hover:bg-slate-900 hover:text-white transition-colors",
+                        watch('vehicleType') === 'Luxury Coach' && "bg-slate-900/50 text-brand-400 font-medium"
+                      )}
+                    >
+                      Luxury Coach
+                    </button>
+
+                    {/* Option: Commercial Cargo / Truck */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setValue('vehicleType', 'Commercial Cargo / Truck');
+                        setIsOpen(false);
+                        setIsSubOpen(false);
+                      }}
+                      className={cn(
+                        "w-full text-left px-3 py-2 text-slate-355 hover:bg-slate-900 hover:text-white transition-colors",
+                        watch('vehicleType') === 'Commercial Cargo / Truck' && "bg-slate-900/50 text-brand-400 font-medium"
+                      )}
+                    >
+                      Commercial Cargo / Truck
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

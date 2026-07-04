@@ -138,8 +138,7 @@ export const CorporateSyncSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            A fully synchronized corporate employee shuttle network. Automate route mapping,
-            minimize carbon footprints, and save up to 45% on commute logistics budgets.
+            A fully integrated corporate employee transportation network designed to streamline daily commutes. Optimize routes, enhance operational efficiency, reduce carbon emissions, and deliver a safe, reliable, and cost-effective mobility solution.
           </motion.p>
         </div>
       </div>
@@ -162,7 +161,7 @@ export const CorporateSyncSection: React.FC = () => {
               <span className="text-xs font-bold text-brand-500 uppercase tracking-widest">Interactive Calculator</span>
               <h3 className="text-2xl sm:text-3xl font-black text-white">Evaluate Your Commute</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Adjust employee parameters to see optimized fleet logistics calculations and budget evaluations.
+                Customize your workforce parameters to instantly evaluate optimized fleet planning, route efficiency, and transportation cost estimates.
               </p>
             </div>
 
@@ -259,7 +258,7 @@ export const CorporateSyncSection: React.FC = () => {
                 </div>
                 <h4 className="text-slate-400 text-xs font-bold uppercase tracking-wider">Fleet Optimization</h4>
                 <p className="text-slate-300 text-xs">
-                  Replacing individual cars with consolidated, coordinated group transits.
+                  Replacing individual vehicle commutes with efficient, coordinated corporate shuttle solutions.
                 </p>
               </div>
               <div className="mt-6 flex items-baseline gap-2">
@@ -277,7 +276,7 @@ export const CorporateSyncSection: React.FC = () => {
                 </div>
                 <h4 className="text-slate-400 text-xs font-bold uppercase tracking-wider">Monthly Budget Saved</h4>
                 <p className="text-slate-300 text-xs">
-                  Coordinated routing significantly reduces leasing overheads.
+                  Optimized route planning helps reduce transportation costs while improving fleet efficiency and operational performance.
                 </p>
               </div>
               <div className="mt-6">
@@ -299,7 +298,7 @@ export const CorporateSyncSection: React.FC = () => {
                 </div>
                 <h4 className="text-slate-400 text-xs font-bold uppercase tracking-wider">Carbon Savings</h4>
                 <p className="text-slate-300 text-xs">
-                  Monthly CO2 emissions avoided by consolidating passenger loads.
+                  Estimated monthly CO₂ emissions reduced through optimized employee shuttle and shared transportation solutions.
                 </p>
               </div>
               <div className="mt-6 flex items-baseline gap-2">
@@ -316,7 +315,7 @@ export const CorporateSyncSection: React.FC = () => {
                 </div>
                 <h4 className="text-slate-400 text-xs font-bold uppercase tracking-wider">Avg Cost / Head</h4>
                 <p className="text-slate-300 text-xs">
-                  Monthly average commute logistics expenditure per employee.
+                  Average monthly employee transportation cost based on optimized corporate mobility planning.
                 </p>
               </div>
               <div className="mt-6 flex items-baseline gap-2">
@@ -331,93 +330,6 @@ export const CorporateSyncSection: React.FC = () => {
       </div>
 
       {/* ════════════════════════════════════
-          SVG ROUTE MAPPING ANIMATION
-      ════════════════════════════════════ */}
-      <div className="py-20 bg-slate-900/10 border-t border-b border-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          {/* Section Header */}
-          <div className="text-center space-y-3">
-            <p className="text-xs sm:text-sm font-semibold tracking-wider text-brand-500 uppercase">
-              Animated Telemetry Flow
-            </p>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Real-Time Route Sync Mapping
-            </h3>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto">
-              Visual evaluation of residential employee hubs matching down into optimized shuttle routes to HQ.
-            </p>
-          </div>
-
-          {/* SVG Container */}
-          <div className="relative w-full max-w-4xl mx-auto border border-slate-900 bg-slate-950 rounded-2xl p-4 md:p-6 overflow-hidden shadow-2xl">
-            <div className="absolute top-4 left-4 flex gap-2 items-center bg-slate-900/80 border border-slate-850 px-3 py-1.5 rounded-lg z-10 text-[10px] font-bold text-slate-300 uppercase tracking-widest">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" /> Live Dispatch Simulation
-            </div>
-
-            <svg viewBox="0 0 800 400" className="w-full h-auto bg-transparent border-0 select-none">
-              <defs>
-                <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
-                </radialGradient>
-                <radialGradient id="officeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
-                </radialGradient>
-                <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f97316" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.8" />
-                </linearGradient>
-              </defs>
-
-              {/* Hub 1 (North Residential Zone) */}
-              <g transform="translate(100, 100)">
-                <circle cx="0" cy="0" r="30" fill="url(#ringGlow)" className="animate-pulse-ring" />
-                <circle cx="0" cy="0" r="5" fill="#f59e0b" />
-                <text x="0" y="-14" fill="#cbd5e1" fontSize="11" fontWeight="bold" textAnchor="middle">Hub North (Zone A)</text>
-              </g>
-
-              {/* Hub 2 (East Residential Zone) */}
-              <g transform="translate(150, 310)">
-                <circle cx="0" cy="0" r="30" fill="url(#ringGlow)" className="animate-pulse-ring" />
-                <circle cx="0" cy="0" r="5" fill="#f59e0b" />
-                <text x="0" y="24" fill="#cbd5e1" fontSize="11" fontWeight="bold" textAnchor="middle">Hub South (Zone B)</text>
-              </g>
-
-              {/* Hub 3 (West Residential Zone) */}
-              <g transform="translate(70, 220)">
-                <circle cx="0" cy="0" r="30" fill="url(#ringGlow)" className="animate-pulse-ring" />
-                <circle cx="0" cy="0" r="5" fill="#f59e0b" />
-                <text x="-48" y="4" fill="#cbd5e1" fontSize="11" fontWeight="bold">Hub West (Zone C)</text>
-              </g>
-
-              {/* Corporate HQ */}
-              <g transform="translate(620, 200)">
-                <circle cx="0" cy="0" r="70" fill="url(#officeGlow)" className="animate-pulse-ring" />
-                <rect x="-20" y="-35" width="40" height="70" rx="3" fill="#1e293b" stroke="#3b82f6" strokeWidth="2" />
-                <line x1="-10" y1="-20" x2="10" y2="-20" stroke="#60a5fa" strokeWidth="2" strokeDasharray="3 3" />
-                <line x1="-10" y1="-10" x2="10" y2="-10" stroke="#60a5fa" strokeWidth="2" strokeDasharray="3 3" />
-                <line x1="-10" y1="0" x2="10" y2="0" stroke="#60a5fa" strokeWidth="2" strokeDasharray="3 3" />
-                <line x1="-10" y1="10" x2="10" y2="10" stroke="#60a5fa" strokeWidth="2" strokeDasharray="3 3" />
-                <circle cx="0" cy="-45" r="4" fill="#ef4444" className="animate-pulse" />
-                <text x="0" y="50" fill="#ffffff" fontSize="13" fontWeight="black" textAnchor="middle">Corporate HQ</text>
-              </g>
-
-              {/* Paths */}
-              <path id="routeNorth" d="M 100 100 Q 350 70, 620 200" fill="none" stroke="url(#routeGrad)" strokeWidth="1.5" className="animate-dash-route" />
-              <path id="routeSouth" d="M 150 310 Q 380 320, 620 200" fill="none" stroke="url(#routeGrad)" strokeWidth="1.5" className="animate-dash-route" />
-              <path id="routeWest" d="M 70 220 Q 300 210, 620 200" fill="none" stroke="url(#routeGrad)" strokeWidth="1.5" className="animate-dash-route" />
-
-              {/* Shuttle Vehicles */}
-              <path d="M 100 100 Q 350 70, 620 200" fill="none" stroke="#22d3ee" strokeWidth="5" strokeLinecap="round" className="shuttle-vehicle-dot" style={{ animationDelay: '0s' }} />
-              <path d="M 150 310 Q 380 320, 620 200" fill="none" stroke="#22d3ee" strokeWidth="5" strokeLinecap="round" className="shuttle-vehicle-dot" style={{ animationDelay: '2s' }} />
-              <path d="M 70 220 Q 300 210, 620 200" fill="none" stroke="#22d3ee" strokeWidth="5" strokeLinecap="round" className="shuttle-vehicle-dot" style={{ animationDelay: '4s' }} />
-            </svg>
-          </div>
-        </div>
-      </div>
-
       {/* ════════════════════════════════════
           INTERACTIVE SHIFT TIMELINE
       ════════════════════════════════════ */}
@@ -433,7 +345,7 @@ export const CorporateSyncSection: React.FC = () => {
               Shift Synchronization Timeline
             </h3>
             <p className="text-slate-400 text-sm max-w-xl mx-auto">
-              How the Strive dispatch algorithms coordinate timeline events leading up to shift start times.
+              Discover how Strive Wheels' intelligent dispatch system coordinates every stage of the employee commute, ensuring timely pickups, optimized routes, and on-time arrivals before every shift.
             </p>
           </div>
 
@@ -447,9 +359,9 @@ export const CorporateSyncSection: React.FC = () => {
                 Step 01
               </span>
               <p className="text-[10px] text-slate-500 font-mono tracking-wider uppercase pt-2">T - 60 Minutes</p>
-              <h4 className="text-base font-bold text-white">Route Assembly</h4>
+              <h4 className="text-base font-bold text-white">Route Optimization</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Strive server gathers active check-ins, clusters residential locations, and generates optimized paths.
+                Our intelligent dispatch platform analyzes employee pickup locations, intelligently clusters travel routes, and generates the most efficient transportation plans to ensure safe, punctual, and cost-effective employee mobility.
               </p>
               <div className="text-xs font-semibold text-brand-400 bg-brand-500/5 px-2 py-1 rounded w-fit border border-brand-500/10">
                 Active at {currentTimeline.notification}
@@ -462,9 +374,9 @@ export const CorporateSyncSection: React.FC = () => {
                 Step 02
               </span>
               <p className="text-[10px] text-slate-500 font-mono tracking-wider uppercase pt-2">T - 30 Minutes</p>
-              <h4 className="text-base font-bold text-white">Dispatcher Broadcast</h4>
+              <h4 className="text-base font-bold text-white">Smart Trip Notifications</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Employees receive push notifications detailing shuttle ID, driver contact, and coordinate boarding point.
+                Employees receive instant notifications with vehicle details, chauffeur contact information, pickup location, and real-time journey updates for a seamless boarding experience.
               </p>
               <div className="text-xs font-semibold text-brand-400 bg-brand-500/5 px-2 py-1 rounded w-fit border border-brand-500/10">
                 Pushed at {currentTimeline.notification}
@@ -477,9 +389,9 @@ export const CorporateSyncSection: React.FC = () => {
                 Step 03
               </span>
               <p className="text-[10px] text-slate-500 font-mono tracking-wider uppercase pt-2">T - 20 Minutes</p>
-              <h4 className="text-base font-bold text-white">Transit Rollout</h4>
+              <h4 className="text-base font-bold text-white">Journey Execution</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Shuttles arrive at coordinated hubs, check-in passengers via telemetry code, and roll out along optimized paths.
+                Our vehicles arrive at designated pickup locations, digitally verify passenger boarding, and operate along intelligently optimized routes—ensuring safe, punctual, and seamless employee transportation.
               </p>
               <div className="text-xs font-semibold text-brand-400 bg-brand-500/5 px-2 py-1 rounded w-fit border border-brand-500/10">
                 Departs at {currentTimeline.pickStart}
@@ -492,9 +404,9 @@ export const CorporateSyncSection: React.FC = () => {
                 Step 04
               </span>
               <p className="text-[10px] text-slate-500 font-mono tracking-wider uppercase pt-2">T - 0 Minutes</p>
-              <h4 className="text-base font-bold text-white">Shift-Synced Arrival</h4>
+              <h4 className="text-base font-bold text-white">On-Time Shift Arrivals</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Shuttles arrive concurrently at the Corporate HQ, allowing smooth boarding and shift handovers.
+                Our synchronized fleet operations ensure employees arrive safely and punctually before every shift, enabling seamless workforce transitions and uninterrupted business operations.
               </p>
               <div className="text-xs font-semibold text-emerald-400 bg-emerald-500/5 px-2 py-1 rounded w-fit border border-emerald-500/10">
                 Arrives at {currentTimeline.arrival}
@@ -512,11 +424,11 @@ export const CorporateSyncSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           <div className="lg:col-span-1 space-y-6">
             <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Telemetry & <br />
-              Optimization Combined
+              Advanced Telematics & <br />
+              Intelligent Optimization
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
-              We sync employee schedules directly with vehicle dispatch engines, ensuring seamless daily travel loops with real-time performance tracking and centralized corporate billing systems.
+              Our intelligent mobility platform seamlessly integrates employee schedules with real-time fleet dispatch, enabling optimized route planning, live vehicle tracking, performance analytics, and centralized corporate billing for a smarter, more efficient transportation experience.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
@@ -536,8 +448,9 @@ export const CorporateSyncSection: React.FC = () => {
           </div>
 
           <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="p-6 rounded-xl border border-slate-900 bg-slate-955 space-y-3">
-              <div className="p-2.5 bg-brand-500/10 text-brand-500 rounded-lg w-fit">
+            {/* Card 1: Dynamic AI Routing (Blue) */}
+            <div className="p-6 rounded-xl border border-blue-500/10 bg-gradient-to-br from-slate-950 to-blue-950/10 hover:border-blue-500/30 transition-all duration-300 space-y-3">
+              <div className="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg w-fit">
                 <Compass className="h-5 w-5" />
               </div>
               <h4 className="text-base font-bold text-white">Dynamic AI Routing</h4>
@@ -546,18 +459,20 @@ export const CorporateSyncSection: React.FC = () => {
               </p>
             </div>
             
-            <div className="p-6 rounded-xl border border-slate-900 bg-slate-955 space-y-3">
-              <div className="p-2.5 bg-amber-500/10 text-amber-500 rounded-lg w-fit">
+            {/* Card 2: Multi-Shift Support (Amber) */}
+            <div className="p-6 rounded-xl border border-amber-500/10 bg-gradient-to-br from-slate-950 to-amber-950/10 hover:border-amber-500/30 transition-all duration-300 space-y-3">
+              <div className="p-2.5 bg-amber-500/10 text-amber-400 rounded-lg w-fit">
                 <Clock className="h-5 w-5" />
               </div>
               <h4 className="text-base font-bold text-white">Multi-Shift Support</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Whether supporting morning office check-ins, evening customer support shifts, or late-night tech dispatches, Strive syncs them all.
+                Whether it&apos;s early morning office commutes, evening shift operations, night-shift transportation, or 24/7 business travel, Strive Wheels ensures every journey is seamlessly synchronized, safe, and on schedule.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-900 bg-slate-955 space-y-3">
-              <div className="p-2.5 bg-teal-500/10 text-teal-500 rounded-lg w-fit">
+            {/* Card 3: Smart Hub Clustering (Emerald) */}
+            <div className="p-6 rounded-xl border border-emerald-500/10 bg-gradient-to-br from-slate-950 to-emerald-950/10 hover:border-emerald-500/30 transition-all duration-300 space-y-3">
+              <div className="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-lg w-fit">
                 <MapPin className="h-5 w-5" />
               </div>
               <h4 className="text-base font-bold text-white">Smart Hub Clustering</h4>
@@ -566,13 +481,14 @@ export const CorporateSyncSection: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-900 bg-slate-955 space-y-3">
-              <div className="p-2.5 bg-brand-500/10 text-brand-500 rounded-lg w-fit">
+            {/* Card 4: Dedicated Account Manager (Violet) */}
+            <div className="p-6 rounded-xl border border-violet-500/10 bg-gradient-to-br from-slate-950 to-violet-950/10 hover:border-violet-500/30 transition-all duration-300 space-y-3">
+              <div className="p-2.5 bg-violet-500/10 text-violet-400 rounded-lg w-fit">
                 <Building className="h-5 w-5" />
               </div>
               <h4 className="text-base font-bold text-white">Dedicated Account Manager</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Get single-point communication with monthly corporate SLA audits, emergency support, and tailored dashboard integrations.
+                Benefit from a dedicated single POC, comprehensive SLA monitoring, 24/7 emergency assistance, and customized reporting dashboards—designed to simplify and enhance your corporate mobility operations.
               </p>
             </div>
           </div>

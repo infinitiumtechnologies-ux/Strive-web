@@ -26,11 +26,11 @@ export const HomePage: React.FC = () => {
   return (
     <div className="-mx-4 sm:-mx-6 lg:-mx-8 -my-8 space-y-0" data-testid="home-page">
       <Hero />
+      <CallToAction />
       <WhyChooseUs />
       <FleetServices />
       <CorporateSyncSection />
       <AboutUsSection />
-      <CallToAction />
       <Testimonials />
       <ContactSection />
     </div>

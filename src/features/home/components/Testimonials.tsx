@@ -87,7 +87,7 @@ export const Testimonials: React.FC = () => {
         {/* Title */}
         <div className="space-y-3">
           <p className="text-xs sm:text-sm font-semibold tracking-wider text-brand-500 uppercase">
-            Testimonials
+            Our Clients
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             What Our Clients Say

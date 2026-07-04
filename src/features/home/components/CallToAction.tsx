@@ -2,9 +2,14 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../../shared/ui/Button';
 import { ShieldCheck, Bus, Clock, Users, ArrowRight } from 'lucide-react';
+import vehicleCar from '../../../assets/vehicle_car.png';
+import vehicleTempo from '../../../assets/vehicle_tempo.png';
+import vehicleMinibus from '../../../assets/vehicle_minibus.png';
 import vehicleHitechBus from '../../../assets/vehicle_hitech_bus.png';
+import vehicleTruck from '../../../assets/vehicle_truck.png';
 
 export const CallToAction: React.FC = () => {
+
   return (
     <section className="relative py-24 bg-slate-950 overflow-hidden border-t border-slate-900" data-testid="cta-section">
       {/* Background Glow */}
@@ -33,14 +38,14 @@ export const CallToAction: React.FC = () => {
                 <Bus className="h-4 w-4" /> Coordinated Mass Transit
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-                Streamline Your <br />
+                Simplify <br />
                 <span className="bg-gradient-to-r from-brand-400 to-amber-500 bg-clip-text text-transparent">
-                  Corporate Commutes
+                  Corporate Mobility
                 </span>{' '}
-                & Group Travel
+                & Group Transportation
               </h2>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                Whether coordinating employee daily shifts or arranging a 54-seater luxury coach bus for long distance travel, we handle the logistics end-to-end. Let us optimize your routes, consolidate your fleets, and audit travel performance.
+                From daily employee shuttle services to luxury coach transportation for conferences, corporate events, airport transfers, and long-distance travel, Strive Wheels delivers end-to-end mobility solutions. We optimize routes, maximize fleet efficiency, streamline operations, and provide real-time insights to ensure safe, reliable, and cost-effective transportation for your organization.
               </p>
             </div>
 
@@ -101,7 +106,7 @@ export const CallToAction: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Visual Coach Bus Asset */}
+          {/* Right Column: Visual Proportional Stack View of All Vehicles */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,17 +115,99 @@ export const CallToAction: React.FC = () => {
             className="lg:col-span-5 relative flex justify-center items-center"
           >
             {/* Glowing background halo */}
-            <div className="absolute w-[80%] h-[80%] rounded-full bg-brand-500/10 blur-[60px] pointer-events-none" />
+            <div className="absolute w-[85%] h-[85%] rounded-full bg-brand-500/10 blur-[60px] pointer-events-none" />
 
-            <div className="relative border border-slate-900 bg-slate-900/10 rounded-2xl p-4 overflow-hidden shadow-2xl flex flex-col items-center">
-              <div className="absolute top-3 right-3 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                54-Seater Premium Coach
+            <div className="relative border border-slate-900 bg-slate-900/10 rounded-2xl p-6 overflow-hidden shadow-2xl flex flex-col items-center justify-center w-full h-[280px]">
+              
+              {/* Header Label */}
+              <div className="absolute top-3 left-4 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
+                Strive Proportional Fleet Stack
               </div>
-              <img
-                src={vehicleHitechBus}
-                alt="Strive Coach Bus"
-                className="w-full h-auto object-contain select-none max-h-[220px]"
-              />
+
+              {/* The Layered Stack View - Same bottom baseline */}
+              <div className="relative w-full h-full flex items-end justify-center pt-8">
+                
+                {/* 1. Heavy Cargo Truck (200px) */}
+                <div 
+                  className="absolute bottom-4 select-none"
+                  style={{
+                    width: '200px',
+                    zIndex: 10,
+                    left: 'calc(50% - 210px)',
+                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))'
+                  }}
+                >
+                  <img src={vehicleTruck} alt="Truck" className="w-full h-auto object-contain" />
+                  <div className="text-center mt-1">
+                    <span className="text-[8px] font-bold text-slate-500 bg-slate-950/90 px-1 py-0.5 rounded border border-slate-800/80 whitespace-nowrap">Truck (200px)</span>
+                  </div>
+                </div>
+
+                {/* 2. Super Luxury Bus (180px) */}
+                <div 
+                  className="absolute bottom-4 select-none"
+                  style={{
+                    width: '180px',
+                    zIndex: 20,
+                    left: 'calc(50% - 120px)',
+                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))'
+                  }}
+                >
+                  <img src={vehicleHitechBus} alt="Luxury Bus" className="w-full h-auto object-contain" />
+                  <div className="text-center mt-1">
+                    <span className="text-[8px] font-bold text-slate-500 bg-slate-950/90 px-1 py-0.5 rounded border border-slate-800/80 whitespace-nowrap">Luxury Bus (180px)</span>
+                  </div>
+                </div>
+
+                {/* 3. Mini Bus (160px) */}
+                <div 
+                  className="absolute bottom-4 select-none"
+                  style={{
+                    width: '160px',
+                    zIndex: 30,
+                    left: 'calc(50% - 40px)',
+                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))'
+                  }}
+                >
+                  <img src={vehicleMinibus} alt="Mini Bus" className="w-full h-auto object-contain" />
+                  <div className="text-center mt-1">
+                    <span className="text-[8px] font-bold text-slate-500 bg-slate-950/90 px-1 py-0.5 rounded border border-slate-800/80 whitespace-nowrap">Mini Bus (160px)</span>
+                  </div>
+                </div>
+
+                {/* 4. Tempo Traveler (140px) */}
+                <div 
+                  className="absolute bottom-4 select-none"
+                  style={{
+                    width: '140px',
+                    zIndex: 40,
+                    left: 'calc(50% + 30px)',
+                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))'
+                  }}
+                >
+                  <img src={vehicleTempo} alt="Tempo" className="w-full h-auto object-contain" />
+                  <div className="text-center mt-1">
+                    <span className="text-[8px] font-bold text-slate-500 bg-slate-950/90 px-1 py-0.5 rounded border border-slate-800/80 whitespace-nowrap">Tempo (140px)</span>
+                  </div>
+                </div>
+
+                {/* 5. Sedan / SUV (120px) */}
+                <div 
+                  className="absolute bottom-4 select-none"
+                  style={{
+                    width: '120px',
+                    zIndex: 50,
+                    left: 'calc(50% + 90px)',
+                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))'
+                  }}
+                >
+                  <img src={vehicleCar} alt="Car" className="w-full h-auto object-contain" />
+                  <div className="text-center mt-1">
+                    <span className="text-[8px] font-bold text-slate-500 bg-slate-950/90 px-1 py-0.5 rounded border border-slate-800/80 whitespace-nowrap">Sedan/SUV (120px)</span>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </motion.div>
 

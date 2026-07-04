@@ -48,7 +48,7 @@ export const AppLayout: React.FC = () => {
 
       <footer className="border-t border-slate-900 bg-slate-950 py-6 text-center text-sm text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} Strive Mobility Solutions Pvt. Ltd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} The Strive Mobility Solutions Pvt. Ltd. All rights reserved.</p>
         </div>
       </footer>
     </div>

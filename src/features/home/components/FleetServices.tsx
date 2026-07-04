@@ -29,11 +29,11 @@ const fleetServices: FleetService[] = [
   {
     id: 'car',
     number: '01',
-    tag: 'Car / Sedan & SUV',
+    tag: 'Sedans, SUVs & XUVs',
     title: 'City Rides & Personal Commutes',
-    subtitle: 'Comfortable 4-Wheeler Sedans & SUVs',
+    subtitle: 'Comfortable 4-Wheeler Sedans, SUVs & XUVs',
     description:
-      'Perfect for daily corporate commutes, airport transfers, and personal errands. Our premium sedans and SUVs offer leather interiors, climate control, and GPS-tracked routes — ensuring you arrive relaxed and on time.',
+      'Perfect for daily corporate commutes, airport transfers, and executive travel. Our premium fleet of sedans, SUVs, and XUVs features luxurious interiors, climate-controlled comfort, and real-time GPS tracking—ensuring every journey is safe, seamless, and punctual.',
     features: [
       { icon: <Users className="h-4 w-4" />, label: 'Up to 7 Passengers' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Auto & Manual Variants' },
@@ -49,11 +49,11 @@ const fleetServices: FleetService[] = [
   {
     id: 'tempo',
     number: '02',
-    tag: 'Tempo / Traveller Van',
-    title: 'Group Shuttles & Team Transport',
+    tag: 'Tempo Traveler',
+    title: 'Group Shuttles & Family Transport',
     subtitle: 'Spacious Vans for 12–17 Passengers',
     description:
-      'Designed for corporate employee shuttle runs and medium-sized group travel. Tempo travellers offer wide seating, high roof clearance, and generous luggage space — ideal for office teams and event transportation.',
+      'Designed for daily corporate employee shuttles, team transportation, and medium-sized group travel. Our Tempo Travelers offer spacious seating, ample headroom, generous luggage capacity, and superior comfort—making them ideal for office commutes, corporate events, conferences, and outstation trips.',
     features: [
       { icon: <Users className="h-4 w-4" />, label: '12–17 Passengers' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Auto & Manual Gearbox' },
@@ -69,11 +69,11 @@ const fleetServices: FleetService[] = [
   {
     id: 'minibus',
     number: '03',
-    tag: 'Mini Bus / Coaster',
+    tag: 'Mini Bus & Event Coaches',
     title: 'Corporate Fleets & Event Coaches',
     subtitle: 'Mid-Capacity Coaches for 20–35 Riders',
     description:
-      'Our corporate coaster buses are engineered for organised employee fleet operations. With structured seating, route-optimised scheduling, and on-board amenities — they serve as the backbone of daily corporate mobility.',
+      'Our premium coaster buses are purpose-built for corporate employee transportation and group mobility. Featuring spacious seating, optimized route planning, and modern onboard amenities, they deliver safe, comfortable, and efficient travel for daily commutes, corporate events, conferences, and business outings.',
     features: [
       { icon: <Users className="h-4 w-4" />, label: '20–35 Passengers' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Manual Transmission' },
@@ -89,7 +89,7 @@ const fleetServices: FleetService[] = [
   {
     id: 'bus',
     number: '04',
-    tag: 'Full Coach Bus',
+    tag: 'Executive Coaches & Long-Haul Travel',
     title: 'Luxury Long-Haul & Mass Transit',
     subtitle: '54-Seater Premium Coach Buses',
     description:
@@ -113,7 +113,7 @@ const fleetServices: FleetService[] = [
     title: 'Cargo & Logistics Solutions',
     subtitle: 'Heavy-Duty Cargo Trucks for Freight & Moving',
     description:
-      'Engineered for commercial freight, logistics, and heavy goods transport. Our orange box truck offers exceptional payload capacity, secure cargo containment, and reliable transit options for all business scale logistics.',
+      'Designed for commercial logistics, freight movement, and heavy cargo transportation. Our fleet delivers high payload capacity, secure cargo handling, and dependable end-to-end logistics solutions tailored to businesses of every scale.',
     features: [
       { icon: <Users className="h-4 w-4" />, label: '3 Passengers / Crew' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Manual Transmission' },
@@ -340,7 +340,7 @@ const ServiceScreen = React.forwardRef<
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20 lg:pt-0">
         <div className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
 
           {/* TEXT */}
@@ -395,13 +395,6 @@ const ServiceScreen = React.forwardRef<
 
             {/* Price + CTA */}
             <div className="flex items-center gap-5 pt-2">
-              <div>
-                <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-0.5">Starting from</p>
-                <p className="text-4xl font-black text-white">
-                  ${service.priceFrom}
-                  <span className="text-sm font-normal text-slate-500 ml-1">/ Day</span>
-                </p>
-              </div>
               <button
                 className="group flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-slate-950 transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{

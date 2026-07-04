@@ -63,9 +63,7 @@ export const AboutUsSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            A product of <strong>Strive Mobility Solutions Pvt. Ltd.</strong> and the broader 
-            <strong> Strive Group of Companies</strong>, dedicated to redefining corporate transit 
-            and premium travel mobility.
+            A flagship brand of <strong>The Strive Mobility Solutions Pvt. Ltd.</strong>, proudly operating under the <strong>Strive Group of Companies</strong>, delivering innovative corporate mobility, employee transportation, and premium travel solutions.
           </motion.p>
         </div>
       </div>
@@ -92,13 +90,23 @@ export const AboutUsSection: React.FC = () => {
                 <span className="text-xs font-bold uppercase tracking-widest">Founder's Message</span>
               </div>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed italic">
-                "As the founder of Strive-he, I envisioned a hospitality company that not only meets but exceeds expectations, creating unforgettable experiences for every guest. With dedication to excellence and a passion for hospitality, we strive to make every moment with us truly exceptional."
+                &ldquo;At Strive Wheels, our vision is to redefine corporate mobility through innovation, reliability, and exceptional service. We are committed to delivering safe, intelligent, and technology-driven transportation solutions that empower businesses and ensure every journey is comfortable, punctual, and seamless. Our mission is not just to move people&mdash;but to create a smarter, more sustainable future for corporate mobility.&rdquo;
               </p>
             </div>
             
             <div className="mt-8 border-t border-slate-800/60 pt-6">
-              <p className="text-lg font-black text-white">Bhanu Teja</p>
-              <p className="text-xs text-slate-500 font-semibold tracking-wider uppercase mt-0.5">CEO & Founder</p>
+              <p className="text-lg font-black text-white">Aluri Bhanuteja</p>
+              <p className="text-xs text-slate-500 font-semibold tracking-wider uppercase mt-0.5">Founder &amp; Managing Director</p>
+              <p className="text-xs font-semibold uppercase tracking-wider mt-1">
+                <a 
+                  href="https://www.strive-he.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-brand-500 hover:text-brand-400 hover:underline transition-colors"
+                >
+                  Strive Group Of Companies
+                </a>
+              </p>
             </div>
           </motion.div>
 
@@ -115,12 +123,12 @@ export const AboutUsSection: React.FC = () => {
                 <Target className="h-6 w-6" />
                 <span className="text-xs font-bold uppercase tracking-widest">Our Vision</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-white">Employment & Community Growth</h3>
+              <h3 className="text-xl sm:text-2xl font-black text-white">Driving Employment. Empowering Communities.</h3>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                We are committed to creating meaningful employment opportunities and fostering economic growth within our community. As part of our mission, we aim to provide stable and rewarding careers, ensuring fair wages and benefits for a minimum of 125+ individuals.
+                At Strive Wheels, every journey creates an opportunity. We are committed to generating meaningful employment, nurturing talent, and strengthening the communities we serve. Our vision extends beyond transportation&mdash;we aim to create a sustainable ecosystem that fosters economic growth, professional development, and long-term social impact.
               </p>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                By investing in our workforce, we strive to not only support the livelihoods of our employees but also contribute to the prosperity and well-being of our society as a whole.
+                As we continue to expand, we are dedicated to creating 125+ direct employment opportunities, providing fair compensation, continuous learning, career advancement, and a workplace built on dignity, inclusion, and excellence. Through responsible business practices and community-focused initiatives, we aspire to drive progress for individuals, businesses, and society alike.
               </p>
             </div>
             
@@ -163,23 +171,31 @@ export const AboutUsSection: React.FC = () => {
             className="space-y-8 text-slate-300 text-sm sm:text-base leading-relaxed max-w-4xl mx-auto"
           >
             <motion.p variants={fUp}>
-              The Strive Group of Companies is more than just a collection of businesses—it is a testament to the power of vision, dedication, and unwavering persistence. At its heart is <strong>Mr. Bhanu Teja</strong>, a man whose journey from humble beginnings to becoming a visionary entrepreneur is as inspiring as it is remarkable.
+              The Strive Group of Companies is more than a collection of businesses&mdash;it is the realization of a vision built on resilience, determination, and an unwavering commitment to excellence. Founded by <strong>A. Bhanu Teja</strong>, the Group reflects a journey shaped by perseverance, continuous learning, and the belief that every challenge presents an opportunity for growth.
             </motion.p>
 
             <motion.p variants={fUp} className="border-l-2 border-brand-500/50 pl-6 my-6 italic text-slate-200">
-              Mr. Teja’s story began in the most modest of roles, starting his career as a bellboy, where he learned the intricacies of business operations and the art of customer service from the ground up. Despite facing numerous challenges, rejections, and failures along the way, his passion for hospitality and a deep desire to create memorable experiences never wavered. Through hard work and perseverance, he gained invaluable experience and knowledge, transforming every setback into a stepping stone for his future.
+              Mr. Teja began his professional journey in the hospitality industry in one of its most fundamental roles, gaining first-hand experience in customer service, operational excellence, and the values that define exceptional guest experiences. Every stage of his career contributed to a deeper understanding of business, leadership, and the importance of creating lasting relationships built on trust and service.
             </motion.p>
 
             <motion.p variants={fUp}>
-              With years of learning and a deep understanding of both success and failure, Mr. Teja sought to create something more—a platform that would not only meet but exceed expectations, a company that would redefine the very essence of hospitality. It was from this vision that the word <strong>“Strive”</strong> was born. Strive was not just a name—it was a symbol of Mr. Teja’s relentless determination, his constant “try,” and his unwavering belief that no dream is too big when you’re committed to pushing beyond your limits.
+              Like many entrepreneurs, his path was marked by challenges, setbacks, and valuable lessons. Rather than viewing these experiences as obstacles, he embraced them as opportunities to learn, improve, and grow stronger. These experiences laid the foundation for a vision that would eventually evolve into the Strive Group of Companies.
             </motion.p>
 
             <motion.p variants={fUp}>
-              The Strive Group of Companies was built on the foundation of this relentless spirit, and today, it stands as a beacon of excellence in the hospitality and business sectors. From the heart of MICE and hospitality services to premium granite offerings and wholesome, homemade food, Strive encompasses a range of ventures that reflect Mr. Teja’s vision of providing exceptional experiences and products to every individual.
+              The name &ldquo;Strive&rdquo; represents far more than a brand&mdash;it reflects a mindset. It symbolizes continuous improvement, resilience, innovation, and the determination to pursue excellence without compromise. It is a commitment to moving forward, embracing change, and consistently exceeding expectations.
             </motion.p>
 
             <motion.p variants={fUp}>
-              However, what truly sets Strive apart is its deep commitment to people. Mr. Teja’s vision extended beyond just business success—he sought to create meaningful employment opportunities, to foster economic growth within his community, and to build a company that would not only thrive but uplift those around it. Strive is dedicated to creating stable, rewarding careers for its employees, offering fair wages and benefits to a minimum of 125+ individuals. By investing in the workforce, Strive is not just shaping the future of its own business, but also contributing to the prosperity and well-being of society as a whole.
+              Today, the Strive Group of Companies operates across multiple sectors, including corporate mobility, hospitality, MICE services, premium accommodations, food and agriculture, granite, logistics, and technology-driven business solutions. Each business has been established with a common objective: to deliver exceptional quality, create lasting value for customers, and build trusted partnerships that stand the test of time.
+            </motion.p>
+
+            <motion.p variants={fUp}>
+              Beyond business success, the Group remains deeply committed to creating meaningful social impact. We believe sustainable growth is achieved by investing in people, empowering communities, and creating opportunities that improve lives. As part of our long-term vision, Strive is committed to generating 1,00,000+ direct employment opportunities, providing fair compensation, professional development, and an inclusive workplace where talent can thrive.
+            </motion.p>
+
+            <motion.p variants={fUp}>
+              As we continue to grow, our purpose remains unchanged&mdash;to build world-class enterprises that combine innovation, integrity, and operational excellence while contributing to India&apos;s economic development and creating lasting value for our customers, employees, partners, and communities.
             </motion.p>
 
             <motion.div
@@ -190,9 +206,9 @@ export const AboutUsSection: React.FC = () => {
                 <Sparkles className="h-8 w-8" />
               </div>
               <div>
-                <h4 className="text-lg font-bold text-white mb-1">From Bellboy to Founder, Employee to Employer</h4>
+                <h4 className="text-lg font-bold text-white mb-1">From Bellboy to Founder. From Employee to Employer.</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Mr. Bhanu Teja’s journey is a reminder that true success is born from perseverance, passion, and an unwavering belief in oneself. Strive is not just a company—it’s a reflection of a dream realized, a legacy of hard work, and a commitment to creating a brighter, more prosperous future for all.
+                  A. Teja&apos;s journey reflects the power of resilience, continuous learning, and unwavering determination. What began with humble beginnings has evolved into a vision of building sustainable businesses that create opportunities, empower people, and deliver lasting value. Today, Strive Group of Companies stands as a testament to the belief that with purpose, perseverance, and integrity, every challenge can become the foundation of something extraordinary.
                 </p>
               </div>
             </motion.div>

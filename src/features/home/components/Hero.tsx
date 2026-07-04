@@ -193,8 +193,8 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl"
         >
-          Book instant city rides, corporate employee daily shuttles, or premium group coach buses.
-          Tailored scheduling, GPS-tracked routes, and transparent pricing.
+          Book instant city rides, daily corporate employee shuttles, or premium group coach services.
+          Enjoy flexible scheduling, GPS-enabled live tracking, and transparent pricing for a seamless travel experience.
         </motion.p>
 
         {/* Stats row */}
@@ -275,11 +275,6 @@ export const Hero: React.FC = () => {
             {current.label} · {current.subLabel}
           </motion.span>
         </AnimatePresence>
-
-        {/* Slide counter */}
-        <span className="ml-auto text-xs text-slate-500 font-mono tabular-nums">
-          {String(activeIndex + 1).padStart(2, '0')} / {String(vehicleSlides.length).padStart(2, '0')}
-        </span>
       </div>
 
     </div>

@@ -8,15 +8,47 @@ import { Button } from '../shared/ui/Button';
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState('Home');
 
   React.useEffect(() => {
     const handleScroll = () => {
+      // 1. Handle scrolled header background
       if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // 2. Active Section detection
+      const scrollPos = window.scrollY + 160; // offset for nav height + buffer
+
+      // Check if we are close to the top of the page
+      if (window.scrollY < 200) {
+        setActiveSection('Home');
+        return;
+      }
+
+      // Find which section is currently in view
+      const sections = [
+        { name: 'Features', id: 'features' },
+        { name: 'Our Services', id: 'fleet-services' },
+        { name: 'Corporate Sync', id: 'corporate-sync' },
+        { name: 'About Us', id: 'aboutus' },
+        { name: 'Contact Us', id: 'contact' },
+      ];
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i].id);
+        if (el) {
+          const topOffset = el.offsetTop;
+          if (scrollPos >= topOffset) {
+            setActiveSection(sections[i].name);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
@@ -62,14 +94,24 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-6">
             <div className="flex items-center gap-2">
               {navLinks.map((link) => {
+                const isActive = link.name === activeSection;
                 if (link.path.startsWith('/#')) {
                   return (
                     <a
                       key={link.path}
                       href={link.path}
-                      className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+                      className={`px-4 py-2 text-sm font-semibold transition-all duration-200 relative ${
+                        isActive ? 'text-brand-400 font-bold' : 'text-slate-300 hover:text-white'
+                      }`}
                     >
                       {link.name}
+                      {isActive && (
+                        <motion.span
+                          layoutId="activeNavUnderline"
+                          className="absolute bottom-[-4px] left-4 right-4 h-[2px] bg-brand-500 rounded-full"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
                     </a>
                   );
                 }
@@ -78,9 +120,18 @@ export const Navbar: React.FC = () => {
                     key={link.path}
                     to={link.path}
                     onClick={handleNavClick}
-                    className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+                    className={`px-4 py-2 text-sm font-semibold transition-all duration-200 relative ${
+                      isActive ? 'text-brand-400 font-bold' : 'text-slate-300 hover:text-white'
+                    }`}
                   >
                     {link.name}
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNavUnderline"
+                        className="absolute bottom-[-4px] left-4 right-4 h-[2px] bg-brand-500 rounded-full"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
                   </Link>
                 );
               })}
@@ -119,13 +170,18 @@ export const Navbar: React.FC = () => {
             className="md:hidden border-b border-slate-900 bg-slate-950 px-4 pt-2 pb-4 space-y-2 overflow-hidden shadow-xl"
           >
             {navLinks.map((link) => {
+              const isActive = link.name === activeSection;
               if (link.path.startsWith('/#')) {
                 return (
                   <a
                     key={link.path}
                     href={link.path}
                     onClick={handleNavClick}
-                    className="block px-3 py-2 rounded-lg text-base font-semibold text-slate-300 hover:bg-slate-900/50 hover:text-slate-200 transition-colors"
+                    className={`block px-3 py-2 rounded-lg text-base font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-slate-900 text-brand-400 font-bold'
+                        : 'text-slate-300 hover:bg-slate-900/50 hover:text-slate-200'
+                    }`}
                   >
                     {link.name}
                   </a>
@@ -136,7 +192,11 @@ export const Navbar: React.FC = () => {
                   key={link.path}
                   to={link.path}
                   onClick={handleNavClick}
-                  className="block px-3 py-2 rounded-lg text-base font-semibold text-slate-300 hover:bg-slate-900/50 hover:text-slate-200 transition-colors"
+                  className={`block px-3 py-2 rounded-lg text-base font-semibold transition-colors ${
+                    isActive
+                      ? 'bg-slate-900 text-brand-400 font-bold'
+                      : 'text-slate-300 hover:bg-slate-900/50 hover:text-slate-200'
+                  }`}
                 >
                   {link.name}
                 </Link>
