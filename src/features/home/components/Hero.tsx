@@ -149,7 +149,7 @@ export const Hero: React.FC = () => {
       {/* ════════════════════════════════════
           FOREGROUND CONTENT (overlay)
       ════════════════════════════════════ */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex flex-col items-start space-y-8">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex flex-col items-start space-y-8">
 
         {/* Badge */}
         <motion.div
@@ -222,7 +222,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="w-full"
+          className="w-full relative z-20"
         >
           <BookingSearchForm />
         </motion.div>

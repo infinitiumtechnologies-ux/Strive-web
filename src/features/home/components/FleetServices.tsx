@@ -230,41 +230,7 @@ const MolecularCanvas: React.FC<{ color: string }> = ({ color }) => {
   );
 };
 
-/* ─────────────────────────────────────────────────────────────
-   Sidebar Navigation Dots
-───────────────────────────────────────────────────────────── */
-const SideNav: React.FC<{ activeIdx: number; count: number; onDot: (i: number) => void }> = ({
-  activeIdx,
-  count,
-  onDot,
-}) => (
-  <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3 hidden lg:flex">
-    {Array.from({ length: count }).map((_, i) => {
-      const svc  = fleetServices[i];
-      const isAc = i === activeIdx;
-      return (
-        <button
-          key={i}
-          onClick={() => onDot(i)}
-          title={svc.title}
-          className="relative flex items-center justify-center transition-all duration-300"
-          style={{ width: 14, height: 14 }}
-        >
-          <span
-            className="rounded-full transition-all duration-300"
-            style={{
-              width:  isAc ? 12 : 6,
-              height: isAc ? 12 : 6,
-              background: isAc ? svc.accentHex : '#475569',
-              boxShadow: isAc ? `0 0 8px ${svc.accentHex}` : 'none',
-              display: 'block',
-            }}
-          />
-        </button>
-      );
-    })}
-  </div>
-);
+
 
 /* ─────────────────────────────────────────────────────────────
    Single Service Screen
@@ -293,8 +259,7 @@ const ServiceScreen = React.forwardRef<
   return (
     <div
       ref={innerRef}
-      className="relative flex items-center bg-slate-950 overflow-hidden"
-      style={{ height: '100vh' }}
+      className="relative flex items-center bg-slate-950 overflow-hidden py-16 lg:py-0 min-h-screen lg:h-screen"
     >
       {/* ── Molecular canvas ── */}
       <MolecularCanvas color={service.accentHex} />
@@ -341,7 +306,7 @@ const ServiceScreen = React.forwardRef<
 
       {/* ── Content ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20 lg:pt-0">
-        <div className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+        <div className={`flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
 
           {/* TEXT */}
           <div
@@ -440,7 +405,7 @@ const ServiceScreen = React.forwardRef<
       {!isLast && (
         <button
           onClick={onNext}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40 hover:opacity-80 transition-opacity"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 opacity-40 hover:opacity-80 transition-opacity"
         >
           <span className="text-[10px] text-slate-400 tracking-widest uppercase">Next</span>
           <ChevronDown className="h-4 w-4 text-slate-400 animate-bounce" />
@@ -456,24 +421,7 @@ ServiceScreen.displayName = 'ServiceScreen';
 ───────────────────────────────────────────────────────────── */
 export const FleetServices: React.FC = () => {
   const slideRefs = React.useRef<(HTMLDivElement | null)[]>([]);
-  const [activeIdx, setActiveIdx] = React.useState(0);
 
-  /* Track active slide using global window scroll */
-  React.useEffect(() => {
-    const onScroll = () => {
-      const mid = window.scrollY + window.innerHeight / 2;
-      let closest = 0;
-      slideRefs.current.forEach((el, i) => {
-        if (!el) return;
-        const top = el.getBoundingClientRect().top + window.scrollY;
-        const bot = top + el.offsetHeight;
-        if (mid >= top && mid < bot) closest = i;
-      });
-      setActiveIdx(closest);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const scrollTo = (idx: number) => {
     const el = slideRefs.current[idx];
@@ -483,8 +431,6 @@ export const FleetServices: React.FC = () => {
 
   return (
     <>
-      {/* Side navigation dots — fixed to viewport */}
-      <SideNav activeIdx={activeIdx} count={fleetServices.length} onDot={scrollTo} />
 
       <section
         id="fleet-services"

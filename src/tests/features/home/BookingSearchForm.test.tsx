@@ -37,7 +37,7 @@ describe('BookingSearchForm Component', () => {
 
     const pickupInput = screen.getByLabelText(/pick-up location/i);
     const dropInput = screen.getByLabelText(/drop-off location/i);
-    const pickupDateInput = screen.getByLabelText(/pick-up date/i);
+    const pickupDateInput = screen.getByLabelText(/^date$/i);
     const dropDateInput = screen.getByLabelText(/return date/i);
     const submitBtn = screen.getByTestId('search-submit');
 

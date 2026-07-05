@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { MapPin, Calendar, Clock, Search, Check, Bus, Car, ChevronLeft, ChevronDown } from 'lucide-react';
+import { MapPin, Calendar, Clock, Search, Check, Bus, Car, ChevronRight, ChevronDown } from 'lucide-react';
 import { Card } from '../../../shared/ui/Card';
 import { Button } from '../../../shared/ui/Button';
 import { cn } from '../../../shared/utils/cn';
@@ -10,7 +10,7 @@ import { cn } from '../../../shared/utils/cn';
 const bookingSchema = z.object({
   pickupLocation: z.string().min(2, 'Pick-up location is required'),
   dropLocation: z.string().min(2, 'Drop-off location is required'),
-  pickupDate: z.string().min(1, 'Pick-up date is required'),
+  pickupDate: z.string().min(1, 'date is required'),
   pickupTime: z.string().min(1, 'Pick-up time is required'),
   rideType: z.string(),
   vehicleType: z.string(),
@@ -110,7 +110,7 @@ export const BookingSearchForm: React.FC = () => {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-end">
             {/* Pick-up Location */}
             <div className="flex flex-col gap-1.5">
               <label
@@ -161,7 +161,7 @@ export const BookingSearchForm: React.FC = () => {
               )}
             </div>
 
-            {/* Pick-Up Date & Time */}
+            {/* Date & Time */}
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
                 <label
@@ -169,7 +169,7 @@ export const BookingSearchForm: React.FC = () => {
                   className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
                 >
                   <Calendar className="h-3.5 w-3.5 text-brand-500" />
-                  {activeRideType === 'Corporate Sync' ? 'Start Date' : 'Pick-Up Date'}
+                  {activeRideType === 'Corporate Sync' ? 'Start Date' : 'Date'}
                 </label>
                 <input
                   id="pickupDate"
@@ -225,7 +225,7 @@ export const BookingSearchForm: React.FC = () => {
 
                 {/* Main Dropdown Popover */}
                 {isOpen && (
-                  <div className="absolute left-0 mt-2 w-64 rounded-lg border border-slate-800 bg-slate-950/95 backdrop-blur-md py-1 shadow-2xl z-50 text-sm">
+                  <div className="absolute left-0 bottom-full mb-2 w-full min-w-[240px] md:w-64 md:max-h-none max-h-[300px] md:overflow-visible overflow-y-auto rounded-lg border border-slate-800 bg-slate-950 py-1 shadow-2xl z-50 text-sm">
                     {/* Header */}
                     <div className="px-3 py-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-900 mb-1">
                       Choose Vehicle Class:
@@ -262,12 +262,12 @@ export const BookingSearchForm: React.FC = () => {
                         )}
                       >
                         <span>Tempo Traveler</span>
-                        <ChevronLeft className="h-4 w-4 text-slate-500" />
+                        <ChevronRight className="h-4 w-4 text-slate-500" />
                       </button>
 
                       {/* Sub-menu (Flyout on desktop, Accordion on mobile) */}
                       {isSubOpen && (
-                        <div className="absolute top-0 right-full mr-1 w-60 rounded-lg border border-slate-800 bg-slate-950/95 backdrop-blur-md py-1 shadow-2xl z-50 transition-all duration-200">
+                        <div className="transition-all duration-200 z-50 text-sm md:absolute md:top-0 md:left-full md:ml-1 md:w-60 md:rounded-lg md:border md:border-slate-800 md:bg-slate-950 md:py-1 md:shadow-2xl w-full relative bg-slate-900/40 border-none shadow-none rounded-none py-0 pl-2">
                           {['12', '13', '14', '15', '16'].map((seats) => {
                             const val = `Tempo Traveler with ${seats} seater`;
                             const isSelected = watch('vehicleType') === val;
@@ -285,7 +285,7 @@ export const BookingSearchForm: React.FC = () => {
                                   isSelected && "bg-brand-500 text-slate-950 font-bold"
                                 )}
                               >
-                                {val}
+                                {seats} Seater
                               </button>
                             );
                           })}

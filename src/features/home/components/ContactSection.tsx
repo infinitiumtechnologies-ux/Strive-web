@@ -94,8 +94,8 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Operational Hours</h4>
-                  <p className="text-xs text-slate-400">24/7 Client Shift Support</p>
-                  <p className="text-[10px] text-slate-500 font-semibold">Office: 09:00 AM - 06:00 PM</p>
+                  <p className="text-xs text-slate-400">24/7 Call Support</p>
+                  <p className="text-[10px] text-slate-500 font-semibold">Office: 08:00 AM - 08:00 PM (08-08)</p>
                 </div>
               </div>
 
@@ -107,7 +107,7 @@ export const ContactSection: React.FC = () => {
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Enterprise Helpline</h4>
                   <p className="text-xs text-slate-400 font-semibold hover:text-white transition-colors">
-                    <a href="tel:+919876543210">+91 98765 43210</a>
+                    <a href="tel:+916366557766">+91 63665 57766</a>
                   </p>
                   <p className="text-[10px] text-slate-500">Corporate accounts and custom leases</p>
                 </div>
@@ -120,8 +120,9 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Official Email</h4>
-                  <p className="text-xs text-slate-400 font-semibold hover:text-white transition-colors">
-                    <a href="mailto:info@strivewheels.com">info@strivewheels.com</a>
+                  <p className="text-xs text-slate-400 font-semibold hover:text-white transition-colors flex flex-col gap-1">
+                    <a href="mailto:info@strive-ms.com">info@strive-ms.com</a>
+                    <a href="mailto:hello@strive-ms.com">hello@strive-ms.com</a>
                   </p>
                   <p className="text-[10px] text-slate-500">Response within 2 hours guaranteed</p>
                 </div>
@@ -136,8 +137,7 @@ export const ContactSection: React.FC = () => {
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Headquarters</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Strive Mobility Solutions Pvt. Ltd.<br />
-                    Financial District, Gachibowli,<br />
-                    Hyderabad, Telangana - 500032
+                    Bangalore, Karnataka
                   </p>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export const ContactSection: React.FC = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 63665 57766"
                           className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-600 focus-visible:outline-none focus-visible:border-slate-700"
                         />
                       </div>

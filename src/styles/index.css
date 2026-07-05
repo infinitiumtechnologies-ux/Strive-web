@@ -21,3 +21,18 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-slate-800 rounded-full hover:bg-brand-500/50 transition-colors;
 }
+
+/* Premium full-screen loader animations */
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
