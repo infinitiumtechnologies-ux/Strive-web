@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { MapPin, Calendar, Clock, Search, Check, Bus, Car, ChevronRight, ChevronDown } from 'lucide-react';
+import { MapPin, Calendar, Clock, Search, Bus, Car, ChevronRight, ChevronDown } from 'lucide-react';
 import { Card } from '../../../shared/ui/Card';
 import { Button } from '../../../shared/ui/Button';
 import { cn } from '../../../shared/utils/cn';
@@ -32,7 +32,6 @@ const getLocalDateString = (offsetDays = 0) => {
 
 export const BookingSearchForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [successData, setSuccessData] = React.useState<BookingFields | null>(null);
 
   const [isOpen, setIsOpen] = React.useState(false);
   const [isSubOpen, setIsSubOpen] = React.useState(false);
@@ -77,7 +76,6 @@ export const BookingSearchForm: React.FC = () => {
     setIsSubmitting(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1200));
-      setSuccessData(data);
     } finally {
       setIsSubmitting(false);
     }
@@ -174,7 +172,7 @@ export const BookingSearchForm: React.FC = () => {
                 <input
                   id="pickupDate"
                   type="date"
-                  className={`flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
+                  className={`block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
                     errors.pickupDate ? 'border-red-500 focus-visible:ring-red-500' : ''
                   }`}
                   {...register('pickupDate')}
@@ -191,7 +189,7 @@ export const BookingSearchForm: React.FC = () => {
                 <input
                   id="pickupTime"
                   type="time"
-                  className={`flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
+                  className={`block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
                     errors.pickupTime ? 'border-red-500 focus-visible:ring-red-500' : ''
                   }`}
                   {...register('pickupTime')}
@@ -362,7 +360,7 @@ export const BookingSearchForm: React.FC = () => {
                     <input
                       id="dropDate"
                       type="date"
-                      className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none"
+                      className="block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none"
                       {...register('dropDate')}
                     />
                   </div>
@@ -377,7 +375,7 @@ export const BookingSearchForm: React.FC = () => {
                     <input
                       id="dropTime"
                       type="time"
-                      className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none"
+                      className="block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none"
                       {...register('dropTime')}
                     />
                   </div>
@@ -444,33 +442,6 @@ export const BookingSearchForm: React.FC = () => {
         </form>
       </Card>
 
-      {/* Success Modal */}
-      {successData && (
-        <div
-          className="fixed inset-0 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm z-50"
-          data-testid="search-success-modal"
-        >
-          <div className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-4">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-3 mb-2">
-              <div className="p-2 bg-brand-500/10 border border-brand-500/20 text-brand-500 rounded-full">
-                <Check className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Booking Selected</h3>
-                <p className="text-xs text-slate-500">Checking matching fleet routes & vehicles</p>
-              </div>
-            </div>
-            <div className="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto">
-              <pre>{JSON.stringify(successData, null, 2)}</pre>
-            </div>
-            <div className="flex justify-end">
-              <Button size="sm" onClick={() => setSuccessData(null)}>
-                Dismiss
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

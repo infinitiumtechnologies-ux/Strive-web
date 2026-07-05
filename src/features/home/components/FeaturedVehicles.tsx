@@ -16,7 +16,7 @@ export interface Vehicle {
   pricePerDay: number;
   seats: number;
   transmission: 'Auto' | 'Manual';
-  fuel: 'Petrol' | 'Diesel' | 'Electric';
+  fuel: 'Petrol' | 'Diesel' | 'Electric' | 'CNG';
   luggage: number;
 }
 
@@ -29,7 +29,7 @@ export const vehiclesData: Vehicle[] = [
     pricePerDay: 50,
     seats: 4,
     transmission: 'Auto',
-    fuel: 'Petrol',
+    fuel: 'CNG',
     luggage: 2,
   },
   {

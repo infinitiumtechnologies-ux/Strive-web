@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from './Navbar';
 import { cn } from '../shared/utils/cn';
+import infinitiumsLogo from '../assets/infinitiums_logo.png';
 
 export const AppLayout: React.FC = () => {
   const location = useLocation();
@@ -45,6 +46,13 @@ export const AppLayout: React.FC = () => {
           <Outlet />
         </motion.main>
       </AnimatePresence>
+
+      {/* Provided By - Centered below the main page content card and above the footer */}
+      <div className="w-full flex items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-500 py-6">
+        <span>Provided by</span>
+        <img src={infinitiumsLogo} alt="Infinitiums Solutions Pvt Ltd" className="h-6 w-6 object-contain rounded-md" />
+        <span className="font-semibold text-slate-400">Infinitiums Solutions Pvt Ltd</span>
+      </div>
 
       <footer className="border-t border-slate-900 bg-slate-950 py-6 text-center text-sm text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

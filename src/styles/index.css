@@ -36,3 +36,11 @@
   animation: loading-bar 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Custom styling for native date and time picker indicators */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(68%) sepia(85%) saturate(1478%) hue-rotate(15deg) brightness(101%) contrast(92%);
+  cursor: pointer;
+  margin-left: auto;
+}
+

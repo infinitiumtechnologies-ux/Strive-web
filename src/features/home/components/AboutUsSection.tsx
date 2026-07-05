@@ -90,7 +90,7 @@ export const AboutUsSection: React.FC = () => {
                 <span className="text-xs font-bold uppercase tracking-widest">Founder's Message</span>
               </div>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed italic">
-                &ldquo;At Strive Wheels, our vision is to redefine corporate mobility through innovation, reliability, and exceptional service. We are committed to delivering safe, intelligent, and technology-driven transportation solutions that empower businesses and ensure every journey is comfortable, punctual, and seamless. Our mission is not just to move people&mdash;but to create a smarter, more sustainable future for corporate mobility.&rdquo;
+                &ldquo;At Strive Wheels, our vision is to redefine corporate mobility through innovation, reliability, and exceptional service. We are committed to delivering safe, intelligent, and technology-driven transportation solutions that empower businesses and ensure every journey is comfortable, punctual, and seamless. Our mission is not just to move people - but to create a smarter, more sustainable future for corporate mobility.&rdquo;
               </p>
             </div>
             
@@ -121,11 +121,11 @@ export const AboutUsSection: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-3 text-amber-500">
                 <Target className="h-6 w-6" />
-                <span className="text-xs font-bold uppercase tracking-widest">Our Vision</span>
+                <span className="text-xs font-bold uppercase tracking-widest">Vision 2040</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black text-white">Driving Employment. Empowering Communities.</h3>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                At Strive Wheels, every journey creates an opportunity. We are committed to generating meaningful employment, nurturing talent, and strengthening the communities we serve. Our vision extends beyond transportation&mdash;we aim to create a sustainable ecosystem that fosters economic growth, professional development, and long-term social impact.
+                At Strive Wheels, every journey creates an opportunity. We are committed to generating meaningful employment, nurturing talent, and strengthening the communities we serve. Our vision extends beyond transportation - we aim to create a sustainable ecosystem that fosters economic growth, professional development, and long-term social impact.
               </p>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
                 As we continue to expand, we are dedicated to creating 125+ direct employment opportunities, providing fair compensation, continuous learning, career advancement, and a workplace built on dignity, inclusion, and excellence. Through responsible business practices and community-focused initiatives, we aspire to drive progress for individuals, businesses, and society alike.
@@ -171,7 +171,7 @@ export const AboutUsSection: React.FC = () => {
             className="space-y-8 text-slate-300 text-sm sm:text-base leading-relaxed max-w-4xl mx-auto"
           >
             <motion.p variants={fUp}>
-              The Strive Group of Companies is more than a collection of businesses&mdash;it is the realization of a vision built on resilience, determination, and an unwavering commitment to excellence. Founded by <strong>A. Bhanu Teja</strong>, the Group reflects a journey shaped by perseverance, continuous learning, and the belief that every challenge presents an opportunity for growth.
+              The Strive Group of Companies is more than a collection of businesses - it is the realization of a vision built on resilience, determination, and an unwavering commitment to excellence. Founded by <strong>A. Bhanu Teja</strong>, the Group reflects a journey shaped by perseverance, continuous learning, and the belief that every challenge presents an opportunity for growth.
             </motion.p>
 
             <motion.p variants={fUp} className="border-l-2 border-brand-500/50 pl-6 my-6 italic text-slate-200">
@@ -183,7 +183,7 @@ export const AboutUsSection: React.FC = () => {
             </motion.p>
 
             <motion.p variants={fUp}>
-              The name &ldquo;Strive&rdquo; represents far more than a brand&mdash;it reflects a mindset. It symbolizes continuous improvement, resilience, innovation, and the determination to pursue excellence without compromise. It is a commitment to moving forward, embracing change, and consistently exceeding expectations.
+              The name &ldquo;Strive&rdquo; represents far more than a brand - it reflects a mindset. It symbolizes continuous improvement, resilience, innovation, and the determination to pursue excellence without compromise. It is a commitment to moving forward, embracing change, and consistently exceeding expectations.
             </motion.p>
 
             <motion.p variants={fUp}>
@@ -195,7 +195,7 @@ export const AboutUsSection: React.FC = () => {
             </motion.p>
 
             <motion.p variants={fUp}>
-              As we continue to grow, our purpose remains unchanged&mdash;to build world-class enterprises that combine innovation, integrity, and operational excellence while contributing to India&apos;s economic development and creating lasting value for our customers, employees, partners, and communities.
+              As we continue to grow, our purpose remains unchanged - to build world-class enterprises that combine innovation, integrity, and operational excellence while contributing to India&apos;s economic development and creating lasting value for our customers, employees, partners, and communities.
             </motion.p>
 
             <motion.div

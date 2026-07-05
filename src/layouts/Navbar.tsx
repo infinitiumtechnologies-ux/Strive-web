@@ -56,9 +56,9 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Corporate Sync', path: '/#corporate-sync' },
-    { name: 'Our Services', path: '/#fleet-services' },
     { name: 'Features', path: '/#features' },
+    { name: 'Our Services', path: '/#fleet-services' },
+    { name: 'Corporate Sync', path: '/#corporate-sync' },
     { name: 'About Us', path: '/#aboutus' },
     { name: 'Contact Us', path: '/#contact' },
   ];

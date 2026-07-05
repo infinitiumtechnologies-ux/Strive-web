@@ -12,7 +12,7 @@ const vehicleSlides = [
     id: 'car',
     image: vehicleCar,
     label: 'Sedan / SUV',
-    subLabel: '1–4 Passengers',
+    subLabel: '1-4 Passengers',
     badge: '4-Wheel',
     accent: '#22d3ee',       // cyan
     gradientFrom: 'rgba(6,182,212,0.18)',
@@ -22,7 +22,7 @@ const vehicleSlides = [
     id: 'tempo',
     image: vehicleTempo,
     label: 'Tempo Van',
-    subLabel: '12–15 Passengers',
+    subLabel: '12-15 Passengers',
     badge: 'Tempo',
     accent: '#f59e0b',       // amber
     gradientFrom: 'rgba(245,158,11,0.18)',
@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 1.1, ease: 'easeInOut' }}
             className="absolute inset-0"
           >
-            {/* Vehicle image — large, centered-right, partially visible */}
+            {/* Vehicle image - large, centered-right, partially visible */}
             <img
               src={current.image}
               alt={current.label}

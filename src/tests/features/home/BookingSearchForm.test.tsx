@@ -28,7 +28,7 @@ describe('BookingSearchForm Component', () => {
     });
   });
 
-  it('submits successfully and opens mock modal details', async () => {
+  it('submits successfully without opening a modal', async () => {
     const user = userEvent.setup();
     render(<BookingSearchForm />);
 
@@ -59,8 +59,8 @@ describe('BookingSearchForm Component', () => {
 
     await waitFor(
       () => {
-        expect(screen.getByTestId('search-success-modal')).toBeInTheDocument();
-        expect(screen.getByText(/Dallas Airport/)).toBeInTheDocument();
+        expect(screen.queryByTestId('button-loader')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('search-success-modal')).not.toBeInTheDocument();
       },
       { timeout: 2000 },
     );

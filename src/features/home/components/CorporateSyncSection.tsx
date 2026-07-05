@@ -391,7 +391,7 @@ export const CorporateSyncSection: React.FC = () => {
               <p className="text-[10px] text-slate-500 font-mono tracking-wider uppercase pt-2">T - 20 Minutes</p>
               <h4 className="text-base font-bold text-white">Journey Execution</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Our vehicles arrive at designated pickup locations, digitally verify passenger boarding, and operate along intelligently optimized routes—ensuring safe, punctual, and seamless employee transportation.
+                Our vehicles arrive at designated pickup locations, digitally verify passenger boarding, and operate along intelligently optimized routes - ensuring safe, punctual, and seamless employee transportation.
               </p>
               <div className="text-xs font-semibold text-brand-400 bg-brand-500/5 px-2 py-1 rounded w-fit border border-brand-500/10">
                 Departs at {currentTimeline.pickStart}
@@ -488,7 +488,7 @@ export const CorporateSyncSection: React.FC = () => {
               </div>
               <h4 className="text-base font-bold text-white">Dedicated Account Manager</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Benefit from a dedicated single POC, comprehensive SLA monitoring, 24/7 emergency assistance, and customized reporting dashboards—designed to simplify and enhance your corporate mobility operations.
+                Benefit from a dedicated single POC, comprehensive SLA monitoring, 24/7 emergency assistance, and customized reporting dashboards - designed to simplify and enhance your corporate mobility operations.
               </p>
             </div>
           </div>

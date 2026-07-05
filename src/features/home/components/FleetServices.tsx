@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Users, Briefcase, Gauge, Fuel, ArrowRight, ChevronDown, Truck } from 'lucide-react';
+import { Users, Briefcase, Gauge, Fuel, ArrowRight, ChevronDown, Truck, Music } from 'lucide-react';
 import vehicleCar from '../../../assets/vehicle_car.png';
 import vehicleTempo from '../../../assets/vehicle_tempo.png';
 import vehicleMinibus from '../../../assets/vehicle_minibus.png';
@@ -33,12 +33,12 @@ const fleetServices: FleetService[] = [
     title: 'City Rides & Personal Commutes',
     subtitle: 'Comfortable 4-Wheeler Sedans, SUVs & XUVs',
     description:
-      'Perfect for daily corporate commutes, airport transfers, and executive travel. Our premium fleet of sedans, SUVs, and XUVs features luxurious interiors, climate-controlled comfort, and real-time GPS tracking—ensuring every journey is safe, seamless, and punctual.',
+      'Perfect for daily corporate commutes, airport transfers, and executive travel. Our premium fleet of sedans, SUVs, and XUVs features luxurious interiors, climate-controlled comfort, and real-time GPS tracking - ensuring every journey is safe, seamless, and punctual.',
     features: [
       { icon: <Users className="h-4 w-4" />, label: 'Up to 7 Passengers' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Auto & Manual Variants' },
-      { icon: <Fuel className="h-4 w-4" />, label: 'Petrol & Diesel Options' },
-      { icon: <Briefcase className="h-4 w-4" />, label: '2–4 Bags Luggage' },
+      { icon: <Fuel className="h-4 w-4" />, label: 'Petrol, Diesel & CNG Options' },
+      { icon: <Briefcase className="h-4 w-4" />, label: '2-6 Bags Luggage' },
     ],
     priceFrom: 50,
     image: vehicleCar,
@@ -51,14 +51,16 @@ const fleetServices: FleetService[] = [
     number: '02',
     tag: 'Tempo Traveler',
     title: 'Group Shuttles & Family Transport',
-    subtitle: 'Spacious Vans for 12–17 Passengers',
+    subtitle: 'Spacious Vans for 12-17 Passengers',
     description:
-      'Designed for daily corporate employee shuttles, team transportation, and medium-sized group travel. Our Tempo Travelers offer spacious seating, ample headroom, generous luggage capacity, and superior comfort—making them ideal for office commutes, corporate events, conferences, and outstation trips.',
+      'Designed for daily corporate employee shuttles, team transportation, and medium-sized group travel. Our Tempo Travelers offer spacious seating, ample headroom, generous luggage capacity, and superior comfort - making them ideal for office commutes, corporate events, conferences, and outstation trips.',
     features: [
-      { icon: <Users className="h-4 w-4" />, label: '12–17 Passengers' },
+      { icon: <Users className="h-4 w-4" />, label: '12-17 Passengers' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Auto & Manual Gearbox' },
       { icon: <Fuel className="h-4 w-4" />, label: 'Diesel Powered' },
-      { icon: <Briefcase className="h-4 w-4" />, label: '6–8 Bags Luggage' },
+      { icon: <Briefcase className="h-4 w-4" />, label: '6-8 Bags Luggage' },
+      { icon: <Music className="h-4 w-4" />, label: 'Sounder System' },
+      { icon: <Briefcase className="h-4 w-4" />, label: 'Top Luggage Carrier' },
     ],
     priceFrom: 110,
     image: vehicleTempo,
@@ -71,14 +73,16 @@ const fleetServices: FleetService[] = [
     number: '03',
     tag: 'Mini Bus & Event Coaches',
     title: 'Corporate Fleets & Event Coaches',
-    subtitle: 'Mid-Capacity Coaches for 20–35 Riders',
+    subtitle: 'Mid-Capacity Coaches for 20-35 Riders',
     description:
       'Our premium coaster buses are purpose-built for corporate employee transportation and group mobility. Featuring spacious seating, optimized route planning, and modern onboard amenities, they deliver safe, comfortable, and efficient travel for daily commutes, corporate events, conferences, and business outings.',
     features: [
-      { icon: <Users className="h-4 w-4" />, label: '20–35 Passengers' },
+      { icon: <Users className="h-4 w-4" />, label: '20-35 Passengers' },
       { icon: <Gauge className="h-4 w-4" />, label: 'Manual Transmission' },
       { icon: <Fuel className="h-4 w-4" />, label: 'High-Efficiency Diesel' },
-      { icon: <Briefcase className="h-4 w-4" />, label: '10–15 Bags Cargo Bay' },
+      { icon: <Briefcase className="h-4 w-4" />, label: '10-15 Bags Cargo Bay' },
+      { icon: <Music className="h-4 w-4" />, label: 'Sounder System' },
+      { icon: <Briefcase className="h-4 w-4" />, label: 'Top Luggage Carrier' },
     ],
     priceFrom: 180,
     image: vehicleMinibus,
@@ -341,7 +345,7 @@ const ServiceScreen = React.forwardRef<
               {service.description}
             </p>
 
-            {/* Feature list — no cards, just clean rows */}
+            {/* Feature list - no cards, just clean rows */}
             <div className="space-y-2 pt-1">
               {service.features.map((feat, i) => (
                 <div key={i} className="flex items-center gap-3 group">
