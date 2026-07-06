@@ -4,6 +4,38 @@ import { Mail, Phone, Clock, MapPin, Send, CheckCircle2, AlertCircle } from 'luc
 import { Button } from '../../../shared/ui/Button';
 import { Card } from '../../../shared/ui/Card';
 
+const COUNTRY_CODES = [
+  { code: '+91', name: 'India (+91)' },
+  { code: '+1', name: 'USA / Canada (+1)' },
+  { code: '+44', name: 'United Kingdom (+44)' },
+  { code: '+61', name: 'Australia (+61)' },
+  { code: '+33', name: 'France (+33)' },
+  { code: '+49', name: 'Germany (+49)' },
+  { code: '+81', name: 'Japan (+81)' },
+  { code: '+65', name: 'Singapore (+65)' },
+  { code: '+971', name: 'UAE (+971)' },
+  { code: '+966', name: 'Saudi Arabia (+966)' },
+  { code: '+55', name: 'Brazil (+55)' },
+  { code: '+86', name: 'China (+86)' },
+  { code: '+20', name: 'Egypt (+20)' },
+  { code: '+62', name: 'Indonesia (+62)' },
+  { code: '+39', name: 'Italy (+39)' },
+  { code: '+82', name: 'South Korea (+82)' },
+  { code: '+60', name: 'Malaysia (+60)' },
+  { code: '+52', name: 'Mexico (+52)' },
+  { code: '+31', name: 'Netherlands (+31)' },
+  { code: '+64', name: 'New Zealand (+64)' },
+  { code: '+92', name: 'Pakistan (+92)' },
+  { code: '+63', name: 'Philippines (+63)' },
+  { code: '+7', name: 'Russia (+7)' },
+  { code: '+27', name: 'South Africa (+27)' },
+  { code: '+34', name: 'Spain (+34)' },
+  { code: '+94', name: 'Sri Lanka (+94)' },
+  { code: '+41', name: 'Switzerland (+41)' },
+  { code: '+90', name: 'Turkey (+90)' },
+  { code: '+84', name: 'Vietnam (+84)' }
+];
+
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = React.useState({
     name: '',
@@ -12,6 +44,7 @@ export const ContactSection: React.FC = () => {
     inquiryType: 'Corporate Sync Account',
     message: '',
   });
+  const [countryCode, setCountryCode] = React.useState('+91');
 
   const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = React.useState('');
@@ -45,6 +78,7 @@ export const ContactSection: React.FC = () => {
         inquiryType: 'Corporate Sync Account',
         message: '',
       });
+      setCountryCode('+91');
     } catch {
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again later.');
@@ -107,7 +141,7 @@ export const ContactSection: React.FC = () => {
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Enterprise Helpline</h4>
                   <p className="text-xs text-slate-400 font-semibold hover:text-white transition-colors">
-                    <a href="tel:+916366557766">+91 63665 57766</a>
+                    <a href="tel:+919606049266">+91 96060 49266</a>
                   </p>
                   <p className="text-[10px] text-slate-500">Corporate accounts and custom leases</p>
                 </div>
@@ -120,9 +154,8 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Official Email</h4>
-                  <p className="text-xs text-slate-400 font-semibold hover:text-white transition-colors flex flex-col gap-1">
+                  <p className="text-xs text-slate-400 font-semibold hover:text-white transition-colors">
                     <a href="mailto:info@strive-ms.com">info@strive-ms.com</a>
-                    <a href="mailto:hello@strive-ms.com">hello@strive-ms.com</a>
                   </p>
                   <p className="text-[10px] text-slate-500">Response within 2 hours guaranteed</p>
                 </div>
@@ -136,7 +169,7 @@ export const ContactSection: React.FC = () => {
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">Headquarters</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    Strive Mobility Solutions Pvt. Ltd.<br />
+                    The Strive Mobility Solutions Pvt Ltd<br />
                     Bangalore, Karnataka
                   </p>
                 </div>
@@ -201,7 +234,7 @@ export const ContactSection: React.FC = () => {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="Bhanu Teja"
+                          placeholder="John Doe"
                           className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-600 focus-visible:outline-none focus-visible:border-slate-700"
                         />
                       </div>
@@ -218,7 +251,7 @@ export const ContactSection: React.FC = () => {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="founder@strive-he.com"
+                          placeholder="john.doe@example.com"
                           className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-600 focus-visible:outline-none focus-visible:border-slate-700"
                         />
                       </div>
@@ -230,15 +263,29 @@ export const ContactSection: React.FC = () => {
                         <label htmlFor="contact-phone" className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                           Phone Number
                         </label>
-                        <input
-                          id="contact-phone"
-                          name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+91 63665 57766"
-                          className="flex h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-600 focus-visible:outline-none focus-visible:border-slate-700"
-                        />
+                        <div className="flex gap-2">
+                          <select
+                            name="countryCode"
+                            value={countryCode}
+                            onChange={(e) => setCountryCode(e.target.value)}
+                            className="flex h-11 w-[90px] rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 focus-visible:outline-none focus-visible:border-slate-700"
+                          >
+                            {COUNTRY_CODES.map((c) => (
+                              <option key={c.code} value={c.code} className="bg-slate-950 text-slate-100">
+                                {c.code}
+                              </option>
+                            ))}
+                          </select>
+                          <input
+                            id="contact-phone"
+                            name="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="123456789"
+                            className="flex h-11 flex-1 rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-600 focus-visible:outline-none focus-visible:border-slate-700"
+                          />
+                        </div>
                       </div>
 
                       {/* Inquiry Type */}

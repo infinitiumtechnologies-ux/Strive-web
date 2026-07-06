@@ -63,7 +63,7 @@ export const AboutUsSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            A flagship brand of <strong>The Strive Mobility Solutions Pvt. Ltd.</strong>, proudly operating under the <strong>Strive Group of Companies</strong>, delivering innovative corporate mobility, employee transportation, and premium travel solutions.
+            A flagship brand of <strong>The Strive Mobility Solutions Pvt Ltd</strong>, proudly operating under the <strong>Strive Group of Companies</strong>, delivering innovative corporate mobility, employee transportation, and premium travel solutions.
           </motion.p>
         </div>
       </div>
