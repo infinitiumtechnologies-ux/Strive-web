@@ -75,6 +75,7 @@ export const BookingSearchForm: React.FC = () => {
   const onSubmit = async (data: BookingFields) => {
     setIsSubmitting(true);
     try {
+      console.log('Booking submitted:', data);
       await new Promise((resolve) => setTimeout(resolve, 1200));
     } finally {
       setIsSubmitting(false);
