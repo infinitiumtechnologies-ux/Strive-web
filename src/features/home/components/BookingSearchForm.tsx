@@ -30,6 +30,26 @@ const getLocalDateString = (offsetDays = 0) => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 
+const generateTimeOptions = () => {
+  const options = [];
+  for (let hour = 0; hour < 24; hour++) {
+    for (let min = 0; min < 60; min += 30) {
+      const hStr = String(hour).padStart(2, '0');
+      const mStr = String(min).padStart(2, '0');
+      const value = `${hStr}:${mStr}`;
+      
+      const ampm = hour >= 12 ? 'PM' : 'AM';
+      const displayHour = hour % 12 === 0 ? 12 : hour % 12;
+      const label = `${String(displayHour).padStart(2, '0')}:${mStr} ${ampm}`;
+      
+      options.push({ value, label });
+    }
+  }
+  return options;
+};
+
+const timeOptions = generateTimeOptions();
+
 export const BookingSearchForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
@@ -109,9 +129,9 @@ export const BookingSearchForm: React.FC = () => {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-end">
+          <div className="grid grid-cols-12 gap-6 items-end">
             {/* Pick-up Location */}
-            <div className="flex flex-col gap-1.5">
+            <div className="col-span-12 md:col-span-6 lg:col-span-3 flex flex-col gap-1.5">
               <label
                 htmlFor="pickupLocation"
                 className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
@@ -136,7 +156,7 @@ export const BookingSearchForm: React.FC = () => {
             </div>
 
             {/* Drop-off Location */}
-            <div className="flex flex-col gap-1.5">
+            <div className="col-span-12 md:col-span-6 lg:col-span-3 flex flex-col gap-1.5">
               <label
                 htmlFor="dropLocation"
                 className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
@@ -160,46 +180,51 @@ export const BookingSearchForm: React.FC = () => {
               )}
             </div>
 
-            {/* Date & Time */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="pickupDate"
-                  className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
-                >
-                  <Calendar className="h-3.5 w-3.5 text-brand-500" />
-                  {activeRideType === 'Corporate Sync' ? 'Start Date' : 'Date'}
-                </label>
-                <input
-                  id="pickupDate"
-                  type="date"
-                  className={`block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
-                    errors.pickupDate ? 'border-red-500 focus-visible:ring-red-500' : ''
-                  }`}
-                  {...register('pickupDate')}
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="pickupTime"
-                  className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
-                >
-                  <Clock className="h-3.5 w-3.5 text-brand-500" />
-                  Time
-                </label>
-                <input
-                  id="pickupTime"
-                  type="time"
-                  className={`block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
-                    errors.pickupTime ? 'border-red-500 focus-visible:ring-red-500' : ''
-                  }`}
-                  {...register('pickupTime')}
-                />
-              </div>
+            {/* Date */}
+            <div className="col-span-6 md:col-span-4 lg:col-span-2 flex flex-col gap-1.5">
+              <label
+                htmlFor="pickupDate"
+                className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
+              >
+                <Calendar className="h-3.5 w-3.5 text-brand-500" />
+                {activeRideType === 'Corporate Sync' ? 'Start Date' : 'Date'}
+              </label>
+              <input
+                id="pickupDate"
+                type="date"
+                className={`flex h-11 w-full items-center rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
+                  errors.pickupDate ? 'border-red-500 focus-visible:ring-red-500' : ''
+                }`}
+                {...register('pickupDate')}
+              />
+            </div>
+
+            {/* Time */}
+            <div className="col-span-6 md:col-span-4 lg:col-span-2 flex flex-col gap-1.5">
+              <label
+                htmlFor="pickupTime"
+                className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
+              >
+                <Clock className="h-3.5 w-3.5 text-brand-500" />
+                Time
+              </label>
+              <select
+                id="pickupTime"
+                className={`flex h-11 w-full items-center rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent ${
+                  errors.pickupTime ? 'border-red-500 focus-visible:ring-red-500' : ''
+                }`}
+                {...register('pickupTime')}
+              >
+                {timeOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value} className="bg-slate-950 text-slate-100">
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Vehicle Type */}
-            <div className="flex flex-col gap-1.5 relative">
+            <div className="col-span-12 md:col-span-4 lg:col-span-2 flex flex-col gap-1.5 relative">
               <label
                 htmlFor="vehicleType"
                 className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
@@ -347,49 +372,54 @@ export const BookingSearchForm: React.FC = () => {
 
           {/* Conditional Fields: Corporate Sync Shift / Round Trip Return Date */}
           {(activeRideType === 'Round Trip' || activeRideType === 'Corporate Sync') && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-end mt-4 border-t border-slate-850 pt-4">
+            <div className="grid grid-cols-12 gap-6 items-end mt-4 border-t border-slate-850 pt-4">
               {activeRideType === 'Round Trip' ? (
-                <div className="grid grid-cols-2 gap-4 col-span-2">
-                  <div className="flex flex-col gap-1.5">
+                <>
+                  <div className="col-span-6 md:col-span-4 lg:col-span-2 flex flex-col gap-1.5">
                     <label
                       htmlFor="dropDate"
-                      className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
+                      className="text-xs font-semibold uppercase tracking-wider text-slate-450 flex items-center gap-1.5"
                     >
-                      <Calendar className="h-3.5 w-3.5 text-brand-500" />
+                      <Calendar className="h-3.5 w-3.5 text-brand-505" />
                       Return Date
                     </label>
                     <input
                       id="dropDate"
                       type="date"
-                      className="block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none"
+                      className="flex h-11 w-full items-center rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent"
                       {...register('dropDate')}
                     />
                   </div>
-                  <div className="flex flex-col gap-1.5">
+                  <div className="col-span-6 md:col-span-4 lg:col-span-2 flex flex-col gap-1.5">
                     <label
                       htmlFor="dropTime"
-                      className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
+                      className="text-xs font-semibold uppercase tracking-wider text-slate-450 flex items-center gap-1.5"
                     >
-                      <Clock className="h-3.5 w-3.5 text-brand-500" />
+                      <Clock className="h-3.5 w-3.5 text-brand-505" />
                       Return Time
                     </label>
-                    <input
+                    <select
                       id="dropTime"
-                      type="time"
-                      className="block h-11 w-full rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-2 text-xs sm:text-sm text-slate-100 transition-colors focus-visible:outline-none"
+                      className="flex h-11 w-full items-center rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent"
                       {...register('dropTime')}
-                    />
+                    >
+                      {timeOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value} className="bg-slate-950 text-slate-100">
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                </div>
+                </>
               ) : (
                 <>
                   {/* Shift Selection */}
-                  <div className="flex flex-col gap-1.5">
+                  <div className="col-span-12 md:col-span-6 lg:col-span-4 flex flex-col gap-1.5">
                     <label
                       htmlFor="corporateShift"
-                      className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
+                      className="text-xs font-semibold uppercase tracking-wider text-slate-450 flex items-center gap-1.5"
                     >
-                      <Clock className="h-3.5 w-3.5 text-brand-500" />
+                      <Clock className="h-3.5 w-3.5 text-brand-505" />
                       Commute Shift Timing
                     </label>
                     <select
@@ -405,12 +435,12 @@ export const BookingSearchForm: React.FC = () => {
                   </div>
 
                   {/* Shift Direction */}
-                  <div className="flex flex-col gap-1.5">
+                  <div className="col-span-12 md:col-span-6 lg:col-span-4 flex flex-col gap-1.5">
                     <label
                       htmlFor="corporateDirection"
-                      className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"
+                      className="text-xs font-semibold uppercase tracking-wider text-slate-450 flex items-center gap-1.5"
                     >
-                      <Bus className="h-3.5 w-3.5 text-brand-500" />
+                      <Bus className="h-3.5 w-3.5 text-brand-505" />
                       Route Sync
                     </label>
                     <select
