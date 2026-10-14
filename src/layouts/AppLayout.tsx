@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from './Navbar';
 import { cn } from '../shared/utils/cn';
@@ -54,9 +54,24 @@ export const AppLayout: React.FC = () => {
         <span className="font-semibold text-slate-400">Infinitiums Solutions Pvt Ltd</span>
       </div>
 
-      <footer className="border-t border-slate-900 bg-slate-950 py-6 text-center text-sm text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-slate-900 bg-slate-950 py-6 text-sm text-slate-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} The Strive Mobility Solutions Pvt Ltd. All rights reserved.</p>
+          <div className="flex items-center gap-6 text-xs sm:text-sm">
+            <Link
+              to="/terms-and-conditions"
+              className="text-slate-400 hover:text-brand-400 font-medium transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="text-slate-700" aria-hidden="true">•</span>
+            <Link
+              to="/privacy-policy"
+              className="text-slate-400 hover:text-brand-400 font-medium transition-colors"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

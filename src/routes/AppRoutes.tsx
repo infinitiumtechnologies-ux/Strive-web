@@ -24,6 +24,16 @@ const DataFetchingPage = React.lazy(() =>
 const FormPage = React.lazy(() =>
   import('../features/forms/pages/FormPage').then((m) => ({ default: m.FormPage })),
 );
+const TermsAndConditionsPage = React.lazy(() =>
+  import('../features/legal/pages/TermsAndConditionsPage').then((m) => ({
+    default: m.TermsAndConditionsPage,
+  })),
+);
+const PrivacyPolicyPage = React.lazy(() =>
+  import('../features/legal/pages/PrivacyPolicyPage').then((m) => ({
+    default: m.PrivacyPolicyPage,
+  })),
+);
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -36,6 +46,10 @@ export const AppRoutes: React.FC = () => {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/data-fetching" element={<DataFetchingPage />} />
           <Route path="/profile-form" element={<FormPage />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+          <Route path="/terms" element={<TermsAndConditionsPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
