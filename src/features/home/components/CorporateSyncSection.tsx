@@ -440,7 +440,7 @@ export const CorporateSyncSection: React.FC = () => {
                 <span className="text-sm font-semibold text-slate-200">Pre-calculated corporate SLA invoices</span>
               </div>
             </div>
-            <a href="/#booking-form" className="inline-block pt-2">
+            <a href="#booking-form" className="inline-block pt-2">
               <Button className="font-bold bg-brand-500 text-slate-950 hover:bg-brand-400 flex items-center gap-2">
                 Sync Your Corporate Fleet <ArrowRight className="h-4 w-4" />
               </Button>

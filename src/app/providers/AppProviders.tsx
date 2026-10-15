@@ -17,7 +17,7 @@ export const AppProviders: React.FC<{ children: React.ReactNode }> = ({ children
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>{children}</BrowserRouter>
+        <BrowserRouter basename={import.meta.env?.BASE_URL || '/'}>{children}</BrowserRouter>
       </QueryClientProvider>
     </HelmetProvider>
   );

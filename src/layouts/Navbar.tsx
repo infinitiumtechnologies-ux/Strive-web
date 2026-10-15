@@ -54,6 +54,16 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const baseUrl = import.meta.env?.BASE_URL || '/';
+
+  const getNavHref = (path: string) => {
+    if (path.startsWith('/#')) {
+      const hash = path.substring(1);
+      return `${baseUrl}${hash}`;
+    }
+    return path;
+  };
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Features', path: '/#features' },
@@ -99,7 +109,7 @@ export const Navbar: React.FC = () => {
                   return (
                     <a
                       key={link.path}
-                      href={link.path}
+                      href={getNavHref(link.path)}
                       className={`px-4 py-2 text-sm font-semibold transition-all duration-200 relative ${
                         isActive ? 'text-brand-400 font-bold' : 'text-slate-300 hover:text-white'
                       }`}
@@ -136,7 +146,7 @@ export const Navbar: React.FC = () => {
                 );
               })}
             </div>
-            <a href="/#booking-form">
+            <a href={`${baseUrl}#booking-form`}>
               <Button
                 variant="primary"
                 size="sm"
@@ -175,7 +185,7 @@ export const Navbar: React.FC = () => {
                 return (
                   <a
                     key={link.path}
-                    href={link.path}
+                    href={getNavHref(link.path)}
                     onClick={handleNavClick}
                     className={`block px-3 py-2 rounded-lg text-base font-semibold transition-colors ${
                       isActive
@@ -203,7 +213,7 @@ export const Navbar: React.FC = () => {
               );
             })}
             <div className="pt-2 border-t border-slate-900 mt-2">
-              <a href="/#booking-form" onClick={handleNavClick} className="block">
+              <a href={`${baseUrl}#booking-form`} onClick={handleNavClick} className="block">
                 <Button
                   variant="primary"
                   size="md"

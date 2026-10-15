@@ -98,7 +98,7 @@ export const CallToAction: React.FC = () => {
 
             {/* CTA Trigger */}
             <div className="pt-4">
-              <a href="/#booking-form">
+              <a href="#booking-form">
                 <Button size="lg" className="font-bold shadow-xl shadow-brand-500/20 px-8 flex items-center gap-2">
                   Book Your Fleet Ride Now <ArrowRight className="h-4 w-4" />
                 </Button>
